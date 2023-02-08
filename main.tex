@@ -125,10 +125,10 @@
     urlbordercolor={[rgb]{0.8,0,0.8}},%
     runbordercolor={[rgb]{0.8,0,0.8}},%
     menubordercolor={[rgb]{0,0.2,0.6}},% 
-    pdftitle={Tarea 12},%
+    pdftitle={Tarea 1},%
     pdfauthor={López Merino Marcos},%
-    pdfsubject={Relatividad},%
-    pdfkeywords={Facultad de Ciencias, UNAM, Relatividad},%
+    pdfsubject={Mecánica Analítica},%
+    pdfkeywords={Facultad de Ciencias, UNAM, Mecánica Analítica},%
     unicode = true%
 }
 
@@ -158,9 +158,9 @@
 }
 
 %%%%%%%%%%%%%%%%%%Nuevos comandos%%%%%%%%%%%%%%%%%%
-\newcommand*{\group}{8231}
-\newcommand*{\classname}{Relatividad}
-\newcommand*{\homeworknumber}{Tarea 12}
+\newcommand*{\group}{8195}
+\newcommand*{\classname}{Mecánica Analítica}
+\newcommand*{\homeworknumber}{Tarea 1}
 \newcommand*{\name}{Marcos López Merino}
 
 % unit vector i
@@ -185,6 +185,9 @@
   }%
 }
 
+% unit vector k
+\newcommand*{\uvectk}{\uvec{k}}
+
 \newcommand*{\observer}{\mathcal{O}}
 \newcommand*{\primeobserver}{\mathcal{O}^{\prime}}
 \newcommand*{\biprimeobserver}{\mathcal{O}^{\prime\prime}}
@@ -196,6 +199,9 @@
 \newcommand*{\laplacian}{\nabla^{2}}
 \newcommand*{\qq}{\quad\quad}
 \DeclareDifferential{\cdif}{\grad}[style-notation=single]
+\newcommand*{\dotprod}[2]{#1 \mathbin{\cdot} #2\xspace}
+\newcommand*{\crossprod}[2]{#1 \mathbin{\mul} #2\xspace}
+\newcommand*{\basevect}[1]{\uvec{e}_{#1}\xspace}
 
 % \newcommand*{\change}[1]{\Delta{#1}\xspace}
 
@@ -266,353 +272,142 @@
     \thispagestyle{fancy}
 
     % Problema 1
-    \begin{exercise}
-      Calcula las componentes del tensor de Riemann, el tensor de Ricci y el escalar de curvatura de las siguientes métrica:
+    \begin{exercise}[\textcolor{red}{1.5}]
+      Comprobar la ecuación
 
-      \begin{enumerate}[label = \alph*)]
-        \item \(\vecspace{R}[2]\) en coordenadas cartesianas
-        
-        \begin{equation*}
-          \odif{s^{2}} = \odif{x^{2}} + \odif{y^{2}}.
-        \end{equation*}
+      \begin{equation*}
+        \crossprod{\vect{A}}{\left(\crossprod{\vect{B}}{\vect{C}}\right)} = \left(\dotprod{\vect{A}}{\vect{C}}\right)\vect{B} - \left(\dotprod{\vect{A}}{\vect{B}}\right)\vect{C}.
+      \end{equation*}
 
-        \begin{solution}
-          Sabemos que las componentes del tensor de Riemann están dadas por
+      \textbf{desarrollando ambos miembros} en función de las componentes cartesianas de los vectores. Hállese el triple producto vectorial \(\vect{A} \mul \left(\vect{B} \mul \vect{C}\right)\) de los tres vectores
 
-          \begin{equation}
-            \tensor{R}{^{\alpha}_{\beta\mu\nu}} = \pdif{\mu}\tensor{\Gamma}{^{\alpha}_{\beta\nu}} - \pdif{\nu}\tensor{\Gamma}{^{\alpha}_{\beta\mu}} + \tensor{\Gamma}{^{\rho}_{\beta\nu}}\tensor{\Gamma}{^{\alpha}_{\rho\mu}} - \tensor{\Gamma}{^{\rho}_{\beta\mu}}\tensor{\Gamma}{^{\alpha}_{\rho\nu}}.
-            \label{eq:RiemannTensorComponents}
-          \end{equation}
-
-          Para esta métrica los símbolos de Christoffel se anulan, \idest
-
-          \begin{equation}
-            \tensor{\Gamma}{^{\beta}_{\alpha\mu}} = 0.
-            \label{eq:ChristoffelSymbolsForCartesianPlane}
-          \end{equation}
-
-          Sustituyendo \cref{eq:ChristoffelSymbolsForCartesianPlane} en \cref{eq:RiemannTensorComponents}, tenemos que las componentes del tensor de Riemann son:
-
-          \begin{empheq}[box = \color{pinkwave}\fbox]{equation}
-            \tensor{R}{^{\alpha}_{\beta\mu\nu}} = 0.
-            \label{eq:RiemannTensorForCartesianPlane}
-          \end{empheq}
-
-          Por otro lado, sabemos que el tensor de Ricci está dado por
-
-          \begin{equation*}
-            \tensor{R}{_{\mu\nu}} = \tensor{R}{^{\sigma}_{\mu\sigma\nu}}.
-          \end{equation*}
-
-          Y puesto que el tensor de Ricci es una contracción del tensor de Riemann, \cref{eq:RiemannTensorForCartesianPlane} implica que
-
-          \begin{empheq}[box = \color{pinkwave}\fbox]{equation*}
-            \tensor{R}{_{\mu\nu}} = 0.
-          \end{empheq}
-
-          Finalmente, tenemos que el escalar de Ricci es una contracción del tensor de Ricci, por lo que
-
-          \begin{empheq}[box = \color{pinkwave}\fbox]{equation*}
-            R = 0.
-          \end{empheq}
-        \end{solution}
-        
-        \item \(\vecspace{R}[2]\) en coordenadas polares
-        
-        \begin{equation*}
-          \odif{s^{2}} = \odif{r^{2}} + r^{2}\odif{\theta^{2}}.
-        \end{equation*}
-
-        \begin{solution}
-          Notamos que la métrica describe el espacio plano en coordenadas polares y, del inciso anterior sabemos que la curvatura del espacio es 0, así
-          
-          \begin{empheq}[box = \color{pinkwave}\fbox]{align*}
-            \tensor{R}{^{\alpha}_{\beta\mu\nu}} &= 0,\\
-            \tensor{R}{_{\mu\nu}} &= 0,\\
-            R &= 0.
-          \end{empheq}
-        \end{solution}
-        
-        \item La 2-esfera \(S^{2}\) en coordenadas esféricas
-        
-        \begin{equation*}
-          \odif{s^{2}} = \odif{\theta^{2}} + \sin^{2}\theta\odif{\phi^{2}}.
-        \end{equation*}
-
-        \begin{solution}
-          Para esta métrica sabemos que los símbolos de Christoffel que no se anulan son:
-
-          \begin{align*}
-            \tensor{\Gamma}{^{\theta}_{\phi\phi}} &= -\sin\theta\cos\theta,\\
-            \tensor{\Gamma}{^{\phi}_{\phi\theta}} &= \tensor{\Gamma}{^{\phi}_{\theta\phi}} = \cot\theta.
-          \end{align*}
-
-          Por lo que las componentes del tensor de Riemann que debemos calcular son:
-
-          \begin{align}
-            \tensor{R}{^{\theta}_{\beta\theta\phi}} &= \pdif{\theta}\tensor{\Gamma}{^{\theta}_{\beta\phi}} + \tensor{\Gamma}{^{\rho}_{\beta\phi}}\tensor{\Gamma}{^{\theta}_{\rho\theta}} - \tensor{\Gamma}{^{\rho}_{\beta\theta}}\tensor{\Gamma}{^{\theta}_{\rho\phi}},\label{eq:ThetaRiemannComponentsFor2Sphere}\\
-            \tensor{R}{^{\phi}_{\beta\phi\theta}} &= - \pdif{\theta}\tensor{\Gamma}{^{\phi}_{\beta\phi}} + \tensor{\Gamma}{^{\rho}_{\beta\theta}}\tensor{\Gamma}{^{\phi}_{\rho\phi}} - \tensor{\Gamma}{^{\rho}_{\beta\phi}}\tensor{\Gamma}{^{\phi}_{\rho\theta}}.\label{eq:PhiRiemannComponentsFor2Sphere}
-          \end{align}
-
-          De \cref{eq:ThetaRiemannComponentsFor2Sphere} tenemos
-
-          \begin{align*}
-            \tensor{R}{^{\theta}_{\phi\theta\phi}} &= \pdif{\theta}\tensor{\Gamma}{^{\theta}_{\phi\phi}} + \tensor{\Gamma}{^{\rho}_{\phi\phi}}\tensor{\Gamma}{^{\theta}_{\rho\theta}} - \tensor{\Gamma}{^{\rho}_{\phi\theta}}\tensor{\Gamma}{^{\theta}_{\rho\phi}},\\
-            &= \pdif{\theta}(-\sin\theta\cos\theta) + \tensor{\Gamma}{^{\theta}_{\phi\phi}}\tensor{\Gamma}{^{\theta}_{\theta\theta}} + \tensor{\Gamma}{^{\phi}_{\phi\phi}}\tensor{\Gamma}{^{\theta}_{\phi\theta}} - \tensor{\Gamma}{^{\theta}_{\phi\theta}}\tensor{\Gamma}{^{\theta}_{\theta\phi}} - \tensor{\Gamma}{^{\phi}_{\phi\theta}}\tensor{\Gamma}{^{\theta}_{\phi\phi}},\\
-            &= -\cos^{2}\theta + \cot\theta\sin\theta\cos\theta,\\
-            \Acolorboxed{\tensor{R}{^{\theta}_{\phi\theta\phi}} &= \sin^{2}\theta = - \tensor{R}{^{\theta}_{\phi\phi\theta}}.}
-          \end{align*}
-
-          Y, de \cref{eq:PhiRiemannComponentsFor2Sphere},
-
-          \begin{align*}
-            \tensor{R}{^{\phi}_{\theta\phi\theta}} &= -\pdif{\theta}\tensor{\Gamma}{^{\phi}_{\theta\phi}} + \tensor{\Gamma}{^{\rho}_{\theta\theta}}\tensor{\Gamma}{^{\phi}_{\rho\phi}} - \tensor{\Gamma}{^{\rho}_{\theta\phi}}\tensor{\Gamma}{^{\phi}_{\rho\theta}},\\
-            &= -\pdif{\theta}(\cot\theta) + \tensor{\Gamma}{^{\theta}_{\theta\theta}}\tensor{\Gamma}{^{\phi}_{\theta\phi}} + \tensor{\Gamma}{^{\phi}_{\theta\theta}}\tensor{\Gamma}{^{\phi}_{\phi\phi}} - \tensor{\Gamma}{^{\theta}_{\theta\phi}}\tensor{\Gamma}{^{\phi}_{\theta\theta}} - \tensor{\Gamma}{^{\phi}_{\theta\phi}}\tensor{\Gamma}{^{\phi}_{\phi\theta}},\\
-            &= -\left(\dfrac{1}{\sin^{2}\theta}\right) - \cot^{2}\theta,\\
-            \Acolorboxed{\tensor{R}{^{\phi}_{\theta\phi\theta}} &= 1 = - \tensor{R}{^{\phi}_{\theta\theta\phi}}.}
-          \end{align*}
-
-          De esta manera, las componentes restantes del tensor de Riemann se anulan.
-
-          Ahora, las componentes del tensor de Ricci que debemos calcular son:
-
-          \begin{align*}
-            \tensor{R}{_{\phi\phi}} &= \tensor{R}{^{\sigma}_{\phi\sigma\phi}} = \tensor{R}{^{\theta}_{\phi\theta\phi}} + \tensor{R}{^{\phi}_{\phi\phi\phi}},\\
-            \tensor{R}{_{\phi\theta}} &= \tensor{R}{_{\theta\phi}} = \tensor{R}{^{\sigma}_{\phi\sigma\theta}} = \tensor{R}{^{\theta}_{\phi\theta\theta}} + \tensor{R}{^{\phi}_{\phi\phi\theta}},\\
-            \tensor{R}{_{\theta\theta}} &= \tensor{R}{^{\sigma}_{\theta\sigma\theta}} = \tensor{R}{^{\theta}_{\theta\theta\theta}} + \tensor{R}{^{\phi}_{\theta\phi\theta}}.
-          \end{align*}
-
-          Así,
-
-          \begin{empheq}[box = \color{pinkwave}\fbox]{align*}
-            \tensor{R}{_{\phi\phi}} &= \sin^{2}\theta,\\
-            \tensor{R}{_{\phi\theta}} &= \tensor{R}{_{\theta\phi}} = 0,\\
-            \tensor{R}{_{\theta\theta}} &= 1.
-          \end{empheq}
-
-          Finalmente, calculamos el escalar de Ricci, tal que,
-
-          \begin{equation*}
-            R = \tensor{g}{^{\mu\nu}}\tensor{R}{_{\mu\nu}} = \tensor{g}{^{\theta\theta}}\tensor{R}{_{\theta\theta}} + \tensor{g}{^{\phi\phi}}\tensor{R}{_{\phi\phi}}.
-          \end{equation*}
-
-          Así,
-
-          \begin{empheq}[box = \color{pinkwave}\fbox]{equation*}
-            R = 2.
-          \end{empheq}
-        \end{solution}
-      \end{enumerate}
+      \begin{equation*}
+        \vect{A} = 3\uveci + \uvecj + 5\uvectk,\quad \vect{B} = -\uveci + 4\uvecj - 2\uvectk,\quad \vect{C} = 2\uveci - \uvecj + \uvectk.
+      \end{equation*}
     \end{exercise}
     
     % Problema 2
-    \pagebreak
-    \begin{exercise}
-      Partiendo de la identidad de Bianchi
+    \begin{exercise}[\textcolor{red}{1.11}]
+      Hállese el conjunto recíproco de vectores del conjunto de vectores no coplanares.
 
-      \begin{equation}
-        \cdif{\lambda}\tensor{R}{^{\alpha}_{\beta\mu\nu}} 
-        + \cdif{\mu}\tensor{R}{^{\alpha}_{\beta\nu\lambda}}
-        + \cdif{\nu}\tensor{R}{^{\alpha}_{\beta\lambda\mu}}
-        = 0
-        \label{eq:BianchiIdentity}
-      \end{equation}
-
-      demuestra que el tensor de Ricci cumple
-
-      \begin{equation*}
-        \cdif[order={\mu}]{\phantom{i}}\left(\tensor{R}{_{\mu\nu}} - \dfrac{1}{2}R\tensor{g}{_{\mu\nu}}\right) = 0.
-      \end{equation*}
-
-      \emph{Hint:} contrae los índices \(\alpha\) y \(\mu\) de la identidad de Bianchi y usa que la conexión de Levi Civita es compatible con la métrica, así como las simetrías de los tensores involucrados.
-
-      \begin{solution}
-        Comenzamos contrayendo \(\alpha\) con \(\mu\) en cada uno de los términos de \cref{eq:BianchiIdentity}.
-
-        \begin{align}
-          \cdif{\lambda}\tensor{R}{^{\mu}_{\beta\mu\nu}} + \cdif{\mu}\tensor{R}{^{\mu}_{\beta\nu\lambda}} + \cdif{\nu}\tensor{R}{^{\mu}_{\beta\lambda\mu}} &= 0,\nonumber\\
-          \cdif{\lambda}\tensor{R}{_{\beta\nu}} + \cdif{\alpha}\tensor{R}{^{\alpha}_{\beta\nu\lambda}} - \cdif{\nu}\tensor{R}{_{\beta\lambda}} &= 0,\label{eq:FirstContractionInBianchiIdentity}
-        \end{align}
-
-        donde \(\tensor{R}{_{\beta\nu}}\) es el tensor de Ricci y \(\tensor{R}{_{\beta\lambda}}\) es el negativo de este, por la contracción 3) que se encuentra en las notas.
-
-        Usando la compatibilidad de la métrica, \idest \(\cdif{\alpha} \tensor{g}{^{\beta\lambda}} = 0\) podemos contraer más índices. Así, \cref{eq:FirstContractionInBianchiIdentity} queda como:
-
-        \begin{align}
-          \tensor{g}{^{\beta\lambda}}\cdif{\lambda}\tensor{R}{_{\beta\nu}} + \tensor{g}{^{\beta\lambda}}\cdif{\alpha}\tensor{R}{^{\alpha}_{\beta\nu\lambda}} - \tensor{g}{^{\beta\lambda}}\cdif{\nu}\tensor{R}{_{\beta\lambda}} &= 0,\nonumber\\
-          \cdif{\lambda}\left(\tensor{g}{^{\beta\lambda}}\tensor{R}{_{\beta\nu}}\right) + \cdif{\alpha}\left(\tensor{g}{^{\beta\lambda}}\tensor{R}{^{\alpha}_{\beta\nu\lambda}}\right) - \cdif{\nu}\left(\tensor{g}{^{\beta\lambda}}\tensor{R}{_{\beta\lambda}}\right) &= 0,\nonumber\\
-          \cdif{\lambda}\tensor{R}{^{\lambda}_{\nu}} + \cdif{\alpha}\tensor{R}{^{\alpha}_{\nu}} - \cdif{\nu}R &= 0.\label{eq:SecondContractionInBianchiIdentity} 
-        \end{align}
-
-        Escribiendo \(\cdif{\lambda}\) como
+      \begin{enumerate}[label = \alph*)]
+        \item 
         
-        \begin{equation}
-          \cdif{\lambda} = \cdif[order = {\mu}]{\phantom{i}}\tensor{g}{_{\lambda\mu}}.
-          \label{eq:LoweringIndexInLeviCivitaConection}
-        \end{equation}
+          \begin{align*}
+            \vect{b}_{1} &= 2\uveci + \uvecj + 4\uvectk,\\
+            \vect{b}_{2} &= \uveci + 3\uvectk,\\
+            \vect{b}_{3} &= -3\uveci - 4\uvecj - \uvectk.
+          \end{align*}
 
-        \pagebreak
-        Por \cref{eq:LoweringIndexInLeviCivitaConection}, \cref{eq:SecondContractionInBianchiIdentity} queda
-
-        \begin{align*}
-          \cdif[order = {\mu}]{\phantom{i}}\tensor{g}{_{\lambda\mu}}\tensor{R}{^{\lambda}_{\nu}} + \cdif[order = {\mu}]{\phantom{i}}\tensor{g}{_{\alpha\mu}}\tensor{R}{^{\alpha}_{\nu}} - \cdif[order = {\mu}]{\phantom{i}}\tensor{g}{_{\nu\mu}}R &= 0,\\
-          \cdif[order = {\mu}]{\phantom{i}}\tensor{R}{_{\mu\nu}} + \cdif[order = {\mu}]{\phantom{i}}\tensor{R}{_{\mu\nu}} - \cdif[order = {\mu}]{\phantom{i}}\tensor{g}{_{\mu\nu}}R &= 0,\\
-          2\cdif[order = {\mu}]{\phantom{i}}\tensor{R}{_{\mu\nu}} - \cdif[order = {\mu}]{\phantom{i}}R\tensor{g}{_{\mu\nu}} &= 0,\\
-          \cdif[order = {\mu}]{\phantom{i}}\left(2\tensor{R}{_{\mu\nu}} - R\tensor{g}{_{\mu\nu}}\right) &= 0,\\
-          \Acolorboxed{\cdif[order = {\mu}]{\phantom{i}}\left(\tensor{R}{_{\mu\nu}} - \dfrac{1}{2}R\tensor{g}{_{\mu\nu}}\right) &= 0.}
-        \end{align*}
-      \end{solution}
+        \item 
+          
+          \begin{align*}
+            \vect{b}_{1} &= \uveci + 2\uvecj + 2\uvectk,\\
+            \vect{b}_{2} &= -3\uveci - 4\uvecj + 2\uvectk,\\
+            \vect{b}_{3} &= 2\uveci - \uvecj - \uvectk.
+          \end{align*}
+      \end{enumerate}
     \end{exercise}
     
     % Problema 3
-    \pagebreak
-    \begin{exercise}
-      El ansatz para la solución	 de Schwarzschild (esféricamente simétrica) que discutimos en clase se escribe en coordenadas polares como
-
-      \begin{equation}
-        \odif{s^{2}} = -f(r)\odif{t^{2}} + h(r)\odif{r^{2}} + r^{2}(\odif{\theta^{2}} + \sin^{2}\theta\odif{\varphi^{2}}).
-        \label{eq:MetricProblem3}
-      \end{equation}
-
-      Sustituir esta métrica en las ecuaciones de Einstein lleva a las siguientes tres ecuaciones diferenciales independientes (las demás componentes se satisfacen automáticamente)
-
-      \begin{align}
-        -rh(r)\tensor{f}{^{\prime}}(r)^{2} + f(r)(2h(r)(r\tensor{f}{^{\prime\prime}}(r) + \tensor{f}{^{\prime}}(r)) - r\tensor{f}{^{\prime}}(r)\tensor{h}{^{\prime}}(r)) - 2f(r)^{2}\tensor{h}{^{\prime}}(r) &= 0,\label{eq:DiffEq1}\\
-        r\tensor{h}{^{\prime}}(r) + h(r)^{2} - h(r) &= 0,\label{eq:DiffEq2}\\
-        r\tensor{f}{^{\prime}}(r) - f(r)h(r) + f(r) &= 0.\label{eq:DiffEq3}
-      \end{align}
-
-      En este problema resolverás este sistema de ecuaciones.
-
-      \begin{enumerate}[label = \alph*)]
-        \item Usa (\ref{eq:DiffEq2}) y (\ref{eq:DiffEq3}) para demostrar que
+    \begin{exercise}[\textcolor{red}{1.12}]
+      \begin{enumerate}[label = \roman*)]
+        \item Exprese los vectores
         
-        \begin{equation}
-          f(r) = \dfrac{k}{h(r)},
-        \end{equation}
+        \begin{equation*}
+          \vect{A} = 2\uveci - 4\uvecj + 3\uvectk,\quad \vect{B} = -3\uveci + 2\uvecj - \uvectk,
+        \end{equation*}
 
-        con \(k\) una constante arbitraria que fijaremos a 1 sin pérdida de generalidad.
+        en función de una suma lineal de los vectores no coplanares del problema anterior (\textcolor{red}{1.11}) y en función de una suma lineal de sus vectores recíprocos.
 
-        \begin{solution}
-          Primero, multiplicamos \cref{eq:DiffEq2} por \(f(r)\) y \cref{eq:DiffEq3} por \(h(r)\).
-
-          \begin{align}
-            rh^{\prime}f + fh^{2} - fh &= 0,\label{eq:DiffEq2ByF}\\
-            rf^{\prime}h + fh^{2} + fh &= 0,\label{eq:DiffEq3ByH}
-          \end{align}
-
-          donde \(f(r) = f\) y \(h(r) = h\).
-
-          Ahora, sumamos \cref{eq:DiffEq2ByF,eq:DiffEq3ByH},
-
-          \begin{align}
-            r(h^{\prime}f + hf^{\prime}) &= 0,\nonumber\\
-            r(hf)^{\prime} &= 0,\nonumber\\
-            \odv[fun=true]{hf}{r} &= 0.\label{eq:DiffEqOfSum}
-          \end{align}
-
-          Integrando \cref{eq:DiffEqOfSum} respecto a \(r\).
-
-          \begin{align*}
-            h(r)f(r) + C &= 0,\\
-            h(r)f(r) &= k,\\
-            f(r) &= \dfrac{k}{h(r)}.
-          \end{align*}
-
-          Igualando \(k = 1\), la expresión anterior queda como:
-
-          \begin{empheq}[box = \color{pinkwave}\fbox]{equation}
-            f(r) = \dfrac{1}{h(r)}.
-            \label{eq:FInTermsOfH}
-          \end{empheq}
-        \end{solution}
-
-        \item Esto te deja con 2 ecuaciones para una sola variable \(h(r)\), una de primer orden y otra de segundo orden. Demuestra que no son independientes derivando la de primer orden respecto a \(r\) y sustituyendo en la de segundo orden.
+        \item Evaluar \(\dotprod{\vect{A}}{\vect{B}}\) y \(\crossprod{\vect{A}}{\vect{B}}\) utilizando los productos escalares \(\alpha_{i},\ \beta_{i},\ \alpha_{i}^{*}\) y \(\beta_{i}^{*}\) de \(\vect{A}\) y \(\vect{B}\) con el conjunto de vectores no coplanares encontrados en i) y sus vectores recíprocos. Compárese la respuesta con los productos escalar y vectorial de estos tres vectores evaluados en función de las componentes cartesianas de \(\vect{A}\) y \(\vect{B}\).
         
-        \begin{solution}
-          Desarrollando \cref{eq:DiffEq1} y usando que \(hf = 1\) obtenemos que:
-
-          \begin{align}
-            -rh{f^{\prime}}^{2} + 2rf^{\prime\prime}fh + 2f^{\prime}fh - rf^{\prime}fh^{\prime} - 2f^{2}h^{\prime} &= 0,\nonumber\\
-            -rh{f^{\prime}}^{2} + 2rf^{\prime\prime} + 2f^{\prime} -rf^{\prime}fh^{\prime} - 2f^{2}h^{\prime} &= 0.\label{eq:DiffEq2Reduce1}
-          \end{align}
-
-          Calculamos la primera y segunda derivada de \cref{eq:FInTermsOfH},
-
-          \begin{align*}
-            f^{\prime} &= \dfrac{-h^{\prime}}{h^{2}},\\
-            f^{\prime\prime} &= \dfrac{-h^{\prime\prime}h^{2} + 2{h^{\prime}}^{2}h}{h^{4}}.
-          \end{align*}
-
-          Sustituyendo las derivadas correspondientes en \cref{eq:DiffEq2Reduce1},
-
-          \begin{align}
-            -rh\dfrac{{h^{\prime}}^{2}}{h^{4}} + 2r\left(\dfrac{-h^{\prime\prime}h^{2} + 2{h^{\prime}}^{2}h}{h^{4}}\right) - r\left(\dfrac{-h^{\prime}}{h^{2}}\right)\left(\dfrac{1}{h}\right)h^{\prime} - 2\left(\dfrac{1}{h^{2}}\right)h^{\prime} &= 0,\nonumber\\
-            \dfrac{rh^{\prime\prime}h^{2} - 2r{h^{\prime}}^{2}h + 2h^{\prime}h^{2}}{h^{4}} &= 0,\nonumber\\
-            \Aboxed{h(r)(rh^{\prime\prime}(r) + 2h^{\prime}(r)) - 2rh^{\prime}(r)^{2} &= 0.}\label{eq:DiffEq4}
-          \end{align}
-
-          Derivando \cref{eq:DiffEq2} respecto a \(r\),
-
-          \begin{align*}
-            \odv[fun=true]{rh^{\prime} + h^{2} - h}{r} &= h^{\prime} + rh^{\prime\prime} + 2hh^{\prime} - h^{\prime},\\
-            &= rh^{\prime\prime} + 2h(r)h^{\prime}.
-          \end{align*}
-
-          Puesto que la expresión anterior aparece en \cref{eq:DiffEq4}, podemos concluir que no son independientes, ya que \cref{eq:DiffEq4} se puede escribir como combinación lineal de \cref{eq:DiffEq2}.
-        \end{solution}
-        
-        \item Finalmente demuestra que la solución general a la única ecuación de primer orden para \(h(r)\) es
-        
-        \begin{equation}
-          h(r) = \left(1 + \dfrac{C}{r}\right)^{-1},
-        \end{equation}
-
-        donde \(C\) es una constante de integración arbitraria.
-
-        \begin{solution}
-          Finalmente, resolvemos \cref{eq:DiffEq3} para encontrar la solución general. Primero, reescribimos la ec. diferencial, tal que,
-
-          \begin{equation*}
-            rh^{\prime} - h = -h^{2}.
-          \end{equation*}
-
-          Notamos que es una ec. diferencial de Bernoulli. Así, \(u = h^{-1}\ \implies h = u^{-1}\ \wedge h^{\prime} = -u^{\prime}u^{-2}\). Sustituyendo
-
-          \begin{equation*}
-            u^{\prime} + \dfrac{1}{r}u = \dfrac{1}{r}.
-          \end{equation*}
-
-          Ahora, para resolver esta nueva ecuación diferencial, tenemos
-
-          \begin{align*}
-            \mu &= \e^{\int\frac{1}{r}\odif{r}},\\
-            &= \e^{\log(r) + C_{1}},\\
-            &= \e^{\log(r)}\e^{C_{1}},\\
-            \Aboxed{\mu &= rC_{2}.}
-          \end{align*}
-
-          \pagebreak
-          Así,
-
-          \begin{align*}
-            u &= \int \dfrac{1}{r}rC_{2}\odif{r},\\
-            &= C_{2}\int\odif{r},\\
-            \Aboxed{u &= \dfrac{r + C}{r}.}
-          \end{align*}
-
-          Y sabemos que \(h^{-1} = u\), entonces
-
-          \begin{empheq}[box = \fbox]{equation*}
-            h^{-1}(r) = 1 + \dfrac{C}{r}.
-          \end{empheq}
-
-          Por lo tanto, la solución general es
-
-          \begin{empheq}[box = \color{pinkwave}\fbox]{equation*}
-            h(r) = \left(1 + \dfrac{C}{r}\right)^{-1}.
-          \end{empheq}
-        \end{solution}
       \end{enumerate}
+    \end{exercise}
+    
+    % Problema 4
+    \begin{exercise}[\textcolor{red}{1.16}]
+      La derivada del vector \(\vect{A}(t)\) de magnitud constante se demostró que puede ser expresada como un producto vectorial
+      
+      \begin{equation*}
+        \odv{\vect{A}(t)}{t} = \crossprod{\vect{\omega}}{\vect{A}(t)},
+      \end{equation*}
+
+      Sin embargo, \(\vect{\omega}\) no es única, ya que la suma del término \(c\vect{A}\) a \(\vect{\omega}\) producirá el mismo resultado. Por otro lado, la derivada de dos vectores de magnitud constante puede determinar una \(\vect{\omega}\) única, en función de la cual sus derivadas son expresables en la forma
+
+      \begin{equation*}
+        \odv*{\vect{A}(t)}{t} = \crossprod{\vect{\omega}}{\vect{A}}\qquad \text{y} \qquad \odv*{\vect{B}(t)}{t} = \crossprod{\vect{\omega}}{\vect{B}}.
+      \end{equation*}
+
+      Considerando los vectores unidad
+
+      \begin{align*}
+        \basevect{1} &= \sin\alpha t\cos\beta t\uveci + \sin\alpha t\sin\beta t\uvecj + \cos\alpha t\uvectk,\\
+        \basevect{2} &= \cos\alpha t\cos\beta t\uveci + \cos\alpha t\sin\beta t\uvecj - \sin\alpha t\uvectk,\\
+        \basevect{3} &= -\sin\beta t\uveci + \cos\beta t\uvecj,
+      \end{align*}
+
+      hállese el vector de la velocidad angular \(\vect{\omega}\) que satisface las ecuaciones
+
+      \begin{equation*}
+        \odv*{\basevect{1}}{t} = \crossprod{\vect{\omega}}{\basevect{1}}\qquad \text{y} \qquad \odv*{\basevect{2}}{t} = \crossprod{\vect{\omega}}{\basevect{2}}.
+      \end{equation*}
+
+      Demostrar que la misma \(\vect{\omega}\) también nos da
+
+      \begin{equation*}
+        \odv*{\basevect{3}}{t} = \crossprod{\vect{\omega}}{\basevect{3}}.
+      \end{equation*}
+    \end{exercise}
+    
+    % Problema 5
+    \begin{exercise}[\textcolor{red}{1.18}]
+      \begin{enumerate}[label = \alph*)]
+        \item Demostrar que los productos escalares \(\alpha_{i}\) y \(\alpha_{i}^{*}\) del vector \(\vect{A}\) por los vectores base \(\vect{b}_{i}\) y sus recíprocos \(\vect{\bm{b}}_{i}\), están relacionados linealmente como se indica por
+        
+        \begin{equation*}
+          \alpha_{i}^{*} = \sum_{j}g_{ij}^{*}\alpha_{j}\qquad \text{y}\qquad \alpha_{i} = \sum_{j}g_{ij}\alpha_{j}^{*},
+        \end{equation*}
+
+        Exprésense los escalares \(g_{ij}\) y \(g_{ij}^{*}\) en función de los vectores base \(\vect{b}_{i}\) y los vectores recíprocos \(\vect{\bm{b}}_{i}\). (Obsérvese que los \(g_{ij}\) son las componentes covariantes del tensor métrico y las \(g_{ij}^{*}\) son las componentes contravariantes del mismo.)
+
+        \item Demostrar que el producto escalar de dos vectores \(\vect{A}\) y \(\vect{B}\) como
+        
+        \begin{equation*}
+          \dotprod{\vect{A}}{\vect{B}} = \sum_{ij}g_{ij}^{*}\alpha_{i}\beta_{j} = \sum_{ij}g_{ij}\alpha_{i}^{*}\beta_{j}^{*}.
+        \end{equation*}
+      \end{enumerate}
+    \end{exercise}
+    
+    % Problema 6
+    \begin{exercise}[\textcolor{red}{1.20}]
+      Comprobar para las ecuaciones
+
+      \begin{equation*}
+        \vect{b}_{1} = \dfrac{\crossprod{\vect{\bm{b}}_{2}}{\vect{\bm{b}}_{3}}}{\dotprod{\vect{\bm{b}_{1}}}{\crossprod{\vect{\bm{b}}_{2}}{\vect{\bm{b}}_{3}}}},\quad
+        \vect{b}_{2} = \dfrac{\crossprod{\vect{\bm{b}}_{3}}{\vect{\bm{b}}_{1}}}{\dotprod{\vect{\bm{b}_{1}}}{\crossprod{\vect{\bm{b}}_{2}}{\vect{\bm{b}}_{3}}}},
+        \quad
+        \vect{b}_{3} = \dfrac{\crossprod{\vect{\bm{b}}_{1}}{\vect{\bm{b}}_{2}}}{\dotprod{\vect{\bm{b}_{1}}}{\crossprod{\vect{\bm{b}}_{2}}{\vect{\bm{b}}_{3}}}}
+      \end{equation*}
+
+      que los vectores \(\vect{b}_{1},\ \vect{b}_{2}\) y \(\vect{b}_{3}\) son recíprocos \(\vect{\bm{b}}_{1},\ \vect{\bm{b}}_{2}\) y \(\vect{\bm{b}}_{3}\).
+    \end{exercise}
+    
+    % Problema 7
+    \begin{exercise}[\textcolor{red}{2.2}]
+      Obtener las expresiones de las componentes polares de la velocidad y la aceleración de las partículas cuyo vector bidimensional de posición es:
+
+      \begin{equation*}
+        r = \dfrac{5}{2 - \cos\phi},\qquad \phi = \omega t.
+      \end{equation*}
+    \end{exercise}
+    
+    % Problema 8
+    \begin{exercise}[\textcolor{red}{2.3}]
+      Hállese, explícitamente, la velocidad y la aceleración de una partícula que se mueve a lo largo de una hélice circular definida por las coordenadas cilíndricas.
+
+      \begin{equation*}
+        \rho = a,\qquad \phi = \omega t\qquad \text{y} \qquad z = -ct,\qquad a,\ b,\ c \in \vecspace{R}.
+      \end{equation*}
     \end{exercise}
 \end{document}
