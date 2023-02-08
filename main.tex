@@ -1,0 +1,618 @@
+\documentclass[12pt]{article}
+\usepackage{polyglossia}
+\usepackage{fontspec}
+\usepackage[export]{adjustbox}
+\usepackage{amsfonts, amsmath, amssymb}
+\usepackage{annotate-equations}
+\usepackage{bm}
+\usepackage{bookmark}
+% \usepackage{breqn}
+\usepackage{derivative}
+\usepackage{empheq}
+\usepackage[inline]{enumitem}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{kantlipsum}
+\usepackage{lastpage}
+\usepackage{linebreaker} % line-breaker algorithm in LuaLaTeX
+\usepackage{lualatex-math} % Fixes for mathematics
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage{mismath}
+\usepackage{nicefrac}
+\usepackage[hyperref]{ntheorem}
+% \usepackage{phfqit} % Bra-ket notation
+% \usepackage{physics}
+\usepackage[final]{showlabels}
+\usepackage{simples-matrices}
+\usepackage{siunitx}
+\usepackage{soul}
+\usepackage{spbmark}
+\usepackage{titling}
+\usepackage{tabularray}
+\usepackage{tasks}
+\usepackage{tensor}
+\usepackage{xcolor}
+\usepackage{xfrac}
+\usepackage{xparse}
+\usepackage{xspace}
+\usepackage{hyperref}
+% Polyglossia config
+\setdefaultlanguage[variant=mexican]{spanish}
+\setotherlanguage{english}
+\usepackage{cleveref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%Configuraciones extras%%%%%%%%%%%%%%%%%%
+\definecolor{base3}{RGB}{253, 246, 227}%
+\definecolor{pinkwave}{RGB}{255, 0, 128}%
+\definecolor{customBlue}{RGB}{11, 61, 98}%
+\pagecolor{base3}
+\graphicspath{{img/}}
+\setlength{\parindent}{2em} % Sangría
+\setlength{\parskip}{0.5em} % Espacio entre párrafos
+\linespread{1.1} % line spacing
+\setlength{\jot}{10pt} % Space between lines in multiline eqs
+% \crefname{equation}{ec.}{ecs.} % Equation's cross-reference name
+\crefname{equation}{}{} % Equation's cross-reference name
+
+% Line-breaker config
+\linebreakersetup {
+    maxtolerance = 90,
+    maxemergencystretch = 1em,
+    maxcycles = 4
+}
+
+%%%%%%%%%%%%%%%%%%Theorem environments%%%%%%%%%%%%%%%%%%
+% Configuración de ambiente para problema
+\theoremstyle{break}
+\theoremheaderfont{\Large\normalfont\bfseries}
+\theorembodyfont{\normalfont}
+\theoremseparator{\bigskip} % Spacing between header and body
+\theorempreskip{1.5em}
+\theorempostskip{\topsep\bigskip}
+\theorempostwork{
+    \color{customBlue} \hrule width \hsize height 2pt \kern 1mm \hrule width \hsize
+    }
+\newtheorem{exercise}{Problema}
+\counterwithin{equation}{exercise}
+
+\makeatletter
+\LetLtxMacro\old@exercise\exercise
+\renewcommand*{\exercise}{%
+  \@ifnextchar[{%
+    \exercise@opt
+  }{%
+    \old@exercise
+    \exercise@bookmark{}%
+  }%
+}
+\def\exercise@opt[#1]{%
+  \old@exercise[{#1}]%
+  \exercise@bookmark{: #1}%
+}
+\newcommand*{\exercise@bookmark}[1]{%
+  \bookmark[dest=\@currentHref]{Problema \theexercise#1}%
+}
+\makeatother
+
+% Configuración de ambiente para solución
+\theoremstyle{nonumberbreak}
+\theoremheaderfont{\Large\normalfont\bfseries}
+\theorembodyfont{\normalfont}
+\theoremseparator{\medskip}
+\theorempreskip{1em}
+\theorempostskip{\topsep\medskip}
+\newtheorem{solution}{Solución}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Configuración del paquete hyperref
+\hypersetup{
+    colorlinks = true,%
+    linkcolor={[rgb]{0,0.2,0.6}},%
+    citecolor={[rgb]{0,0.6,0.2}},%
+    filecolor={[rgb]{0.8,0,0.8}},%
+    urlcolor={[rgb]{0.8,0,0.8}},%
+    runcolor={[rgb]{0.8,0,0.8}},% 
+    menucolor={[rgb]{0,0.2,0.6}},%
+    linkbordercolor={[rgb]{0,0.2,0.6}},%
+    citebordercolor={[rgb]{0,0.6,0.2}},%
+    filebordercolor={[rgb]{0.8,0,0.8}},%
+    urlbordercolor={[rgb]{0.8,0,0.8}},%
+    runbordercolor={[rgb]{0.8,0,0.8}},%
+    menubordercolor={[rgb]{0,0.2,0.6}},% 
+    pdftitle={Tarea 12},%
+    pdfauthor={López Merino Marcos},%
+    pdfsubject={Relatividad},%
+    pdfkeywords={Facultad de Ciencias, UNAM, Relatividad},%
+    unicode = true%
+}
+
+%%%%%%%%%%%%%%%%%%siunitx configuration%%%%%%%%%%%%%%%%%%
+% Configuración del paquete siunitx
+\sisetup{
+	output-decimal-marker = {.}, 
+	per-mode = symbol-or-fraction,
+	separate-uncertainty = false,
+	exponent-product = \cross,
+    % inter-unit-product = \ensuremath{{}\vdot{}}
+}
+
+% Declaring new units
+\DeclareSIUnit\kilogram{\kilo\gram}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Geometría del documento
+\geometry{
+    letterpaper,
+    top = 0.6in,
+    bottom = 0.8in,
+    left = 0.6in,
+    right = 0.6in,
+    footskip = 38pt
+}
+
+%%%%%%%%%%%%%%%%%%Nuevos comandos%%%%%%%%%%%%%%%%%%
+\newcommand*{\group}{8231}
+\newcommand*{\classname}{Relatividad}
+\newcommand*{\homeworknumber}{Tarea 12}
+\newcommand*{\name}{Marcos López Merino}
+
+% unit vector i
+\newcommand*{\uveci}{{\bm{\hat{\textnormal{\bfseries\i}}}}}
+% unit vector j
+\newcommand*{\uvecj}{{\bm{\hat{\textnormal{\bfseries\j}}}}}
+% unit vector
+\DeclareRobustCommand{\uvec}[1]{{%
+  \ifcsname uvec#1\endcsname
+     \csname uvec#1\endcsname
+   \else
+    \bm{\hat{\mathbf{#1}}}%
+   \fi
+}}% 
+\newcommand{\idest}{\emph{i.e.},\xspace} % id est
+% Espacio vectorial, e.g., ℝ, ℂ, ℕ, etc.
+\NewDocumentCommand{\vecspace}{m o}{%
+  \IfValueTF{#2}{%
+    \mathbb{#1}^{#2}%
+  }{%
+    \mathbb{#1}%
+  }%
+}
+
+\newcommand*{\observer}{\mathcal{O}}
+\newcommand*{\primeobserver}{\mathcal{O}^{\prime}}
+\newcommand*{\biprimeobserver}{\mathcal{O}^{\prime\prime}}
+\newcommand*{\triprimeobserver}{\mathcal{O}^{\prime\prime\prime}}
+\newcommand*{\inlinesol}{\vspace*{10pt}\textbf{Solución}\vspace*{10pt}}
+\renewcommand*{\grad}{\nabla}
+\renewcommand*{\div}{\nabla \cdot}
+\renewcommand*{\curl}{\nabla \mul}
+\newcommand*{\laplacian}{\nabla^{2}}
+\newcommand*{\qq}{\quad\quad}
+\DeclareDifferential{\cdif}{\grad}[style-notation=single]
+
+% \newcommand*{\change}[1]{\Delta{#1}\xspace}
+
+\NewDocumentCommand{\change}{ s o m }{%
+    \IfBooleanTF{#1}{%
+        \Delta {#3^{\prime}}
+    }{%
+        \Delta {#3}
+    }
+}
+\NewDocumentCommand{\interval}{ s o m }{%
+    \IfBooleanTF{#1}{%
+        (\Delta {#3^{\prime}})^{2}
+    }{%
+        (\Delta {#3})^{2}
+    }
+}
+\DeclarePairedDelimiterX\set[1]\lbrace\rbrace{#1}
+% \newcommand{\crefrangeconjunction}{--}
+% \newcommand{\crefpairconjunction}{\xspace y\xspace}
+
+% Defining a variant of Aboxed command from mathtools
+\makeatletter
+\newcommand*\Acolorboxed[2][pinkwave]{%
+   \let\bgroup{\romannumeral-`}%
+   \@Acolorboxed{#1}#2&&\ENDDNE
+}
+\def\@Acolorboxed#1#2&#3&#4\ENDDNE{%
+  \ifnum0=`{}\fi
+  \setbox\z@\hbox{$\displaystyle#2{}\m@th$\kern\fboxsep \kern\fboxrule}%
+  \edef\@tempa{\kern\wd\z@ & \kern-\the\wd\z@ \fboxsep\the\fboxsep \fboxrule\the\fboxrule}%
+  \@tempa
+  \fcolorbox{#1}{base3}{\m@th$\displaystyle#2#3$}%
+} 
+\makeatother
+
+%%%%%%%%%%%%%%%%%%Portada y configuración%%%%%%%%%%%%%%%%%%
+% Configuración de portada
+\setlength{\droptitle}{-60pt} % raise the title
+
+% Portada
+\title{
+    \textbf{\homeworknumber}\\
+    \normalsize\vspace{0.1in}\small{\textbf{Entrega}:~\today}
+    \vspace{-1.5in}
+}
+\author{}
+\date{}
+
+%%%%%%%%%%%%%%%%%%Header and footer%%%%%%%%%%%%%%%%%%
+\setlength{\headheight}{15.2pt}
+\pagestyle{fancy}
+\lhead{Grupo \group, Sem. 2023-1}
+\chead{\classname}
+\rhead{\name}
+\lfoot{\includegraphics[scale = 0.2, valign = c]{LogoFCUNAMcolor.pdf}}
+% \lfoot{\includegraphics[scale = 0.1, valign = c]{example-image}}
+\cfoot{\homeworknumber}
+\rfoot{Pág. \thepage \hspace{1pt} de \pageref{LastPage}}
+
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+    \maketitle
+    \thispagestyle{fancy}
+
+    % Problema 1
+    \begin{exercise}
+      Calcula las componentes del tensor de Riemann, el tensor de Ricci y el escalar de curvatura de las siguientes métrica:
+
+      \begin{enumerate}[label = \alph*)]
+        \item \(\vecspace{R}[2]\) en coordenadas cartesianas
+        
+        \begin{equation*}
+          \odif{s^{2}} = \odif{x^{2}} + \odif{y^{2}}.
+        \end{equation*}
+
+        \begin{solution}
+          Sabemos que las componentes del tensor de Riemann están dadas por
+
+          \begin{equation}
+            \tensor{R}{^{\alpha}_{\beta\mu\nu}} = \pdif{\mu}\tensor{\Gamma}{^{\alpha}_{\beta\nu}} - \pdif{\nu}\tensor{\Gamma}{^{\alpha}_{\beta\mu}} + \tensor{\Gamma}{^{\rho}_{\beta\nu}}\tensor{\Gamma}{^{\alpha}_{\rho\mu}} - \tensor{\Gamma}{^{\rho}_{\beta\mu}}\tensor{\Gamma}{^{\alpha}_{\rho\nu}}.
+            \label{eq:RiemannTensorComponents}
+          \end{equation}
+
+          Para esta métrica los símbolos de Christoffel se anulan, \idest
+
+          \begin{equation}
+            \tensor{\Gamma}{^{\beta}_{\alpha\mu}} = 0.
+            \label{eq:ChristoffelSymbolsForCartesianPlane}
+          \end{equation}
+
+          Sustituyendo \cref{eq:ChristoffelSymbolsForCartesianPlane} en \cref{eq:RiemannTensorComponents}, tenemos que las componentes del tensor de Riemann son:
+
+          \begin{empheq}[box = \color{pinkwave}\fbox]{equation}
+            \tensor{R}{^{\alpha}_{\beta\mu\nu}} = 0.
+            \label{eq:RiemannTensorForCartesianPlane}
+          \end{empheq}
+
+          Por otro lado, sabemos que el tensor de Ricci está dado por
+
+          \begin{equation*}
+            \tensor{R}{_{\mu\nu}} = \tensor{R}{^{\sigma}_{\mu\sigma\nu}}.
+          \end{equation*}
+
+          Y puesto que el tensor de Ricci es una contracción del tensor de Riemann, \cref{eq:RiemannTensorForCartesianPlane} implica que
+
+          \begin{empheq}[box = \color{pinkwave}\fbox]{equation*}
+            \tensor{R}{_{\mu\nu}} = 0.
+          \end{empheq}
+
+          Finalmente, tenemos que el escalar de Ricci es una contracción del tensor de Ricci, por lo que
+
+          \begin{empheq}[box = \color{pinkwave}\fbox]{equation*}
+            R = 0.
+          \end{empheq}
+        \end{solution}
+        
+        \item \(\vecspace{R}[2]\) en coordenadas polares
+        
+        \begin{equation*}
+          \odif{s^{2}} = \odif{r^{2}} + r^{2}\odif{\theta^{2}}.
+        \end{equation*}
+
+        \begin{solution}
+          Notamos que la métrica describe el espacio plano en coordenadas polares y, del inciso anterior sabemos que la curvatura del espacio es 0, así
+          
+          \begin{empheq}[box = \color{pinkwave}\fbox]{align*}
+            \tensor{R}{^{\alpha}_{\beta\mu\nu}} &= 0,\\
+            \tensor{R}{_{\mu\nu}} &= 0,\\
+            R &= 0.
+          \end{empheq}
+        \end{solution}
+        
+        \item La 2-esfera \(S^{2}\) en coordenadas esféricas
+        
+        \begin{equation*}
+          \odif{s^{2}} = \odif{\theta^{2}} + \sin^{2}\theta\odif{\phi^{2}}.
+        \end{equation*}
+
+        \begin{solution}
+          Para esta métrica sabemos que los símbolos de Christoffel que no se anulan son:
+
+          \begin{align*}
+            \tensor{\Gamma}{^{\theta}_{\phi\phi}} &= -\sin\theta\cos\theta,\\
+            \tensor{\Gamma}{^{\phi}_{\phi\theta}} &= \tensor{\Gamma}{^{\phi}_{\theta\phi}} = \cot\theta.
+          \end{align*}
+
+          Por lo que las componentes del tensor de Riemann que debemos calcular son:
+
+          \begin{align}
+            \tensor{R}{^{\theta}_{\beta\theta\phi}} &= \pdif{\theta}\tensor{\Gamma}{^{\theta}_{\beta\phi}} + \tensor{\Gamma}{^{\rho}_{\beta\phi}}\tensor{\Gamma}{^{\theta}_{\rho\theta}} - \tensor{\Gamma}{^{\rho}_{\beta\theta}}\tensor{\Gamma}{^{\theta}_{\rho\phi}},\label{eq:ThetaRiemannComponentsFor2Sphere}\\
+            \tensor{R}{^{\phi}_{\beta\phi\theta}} &= - \pdif{\theta}\tensor{\Gamma}{^{\phi}_{\beta\phi}} + \tensor{\Gamma}{^{\rho}_{\beta\theta}}\tensor{\Gamma}{^{\phi}_{\rho\phi}} - \tensor{\Gamma}{^{\rho}_{\beta\phi}}\tensor{\Gamma}{^{\phi}_{\rho\theta}}.\label{eq:PhiRiemannComponentsFor2Sphere}
+          \end{align}
+
+          De \cref{eq:ThetaRiemannComponentsFor2Sphere} tenemos
+
+          \begin{align*}
+            \tensor{R}{^{\theta}_{\phi\theta\phi}} &= \pdif{\theta}\tensor{\Gamma}{^{\theta}_{\phi\phi}} + \tensor{\Gamma}{^{\rho}_{\phi\phi}}\tensor{\Gamma}{^{\theta}_{\rho\theta}} - \tensor{\Gamma}{^{\rho}_{\phi\theta}}\tensor{\Gamma}{^{\theta}_{\rho\phi}},\\
+            &= \pdif{\theta}(-\sin\theta\cos\theta) + \tensor{\Gamma}{^{\theta}_{\phi\phi}}\tensor{\Gamma}{^{\theta}_{\theta\theta}} + \tensor{\Gamma}{^{\phi}_{\phi\phi}}\tensor{\Gamma}{^{\theta}_{\phi\theta}} - \tensor{\Gamma}{^{\theta}_{\phi\theta}}\tensor{\Gamma}{^{\theta}_{\theta\phi}} - \tensor{\Gamma}{^{\phi}_{\phi\theta}}\tensor{\Gamma}{^{\theta}_{\phi\phi}},\\
+            &= -\cos^{2}\theta + \cot\theta\sin\theta\cos\theta,\\
+            \Acolorboxed{\tensor{R}{^{\theta}_{\phi\theta\phi}} &= \sin^{2}\theta = - \tensor{R}{^{\theta}_{\phi\phi\theta}}.}
+          \end{align*}
+
+          Y, de \cref{eq:PhiRiemannComponentsFor2Sphere},
+
+          \begin{align*}
+            \tensor{R}{^{\phi}_{\theta\phi\theta}} &= -\pdif{\theta}\tensor{\Gamma}{^{\phi}_{\theta\phi}} + \tensor{\Gamma}{^{\rho}_{\theta\theta}}\tensor{\Gamma}{^{\phi}_{\rho\phi}} - \tensor{\Gamma}{^{\rho}_{\theta\phi}}\tensor{\Gamma}{^{\phi}_{\rho\theta}},\\
+            &= -\pdif{\theta}(\cot\theta) + \tensor{\Gamma}{^{\theta}_{\theta\theta}}\tensor{\Gamma}{^{\phi}_{\theta\phi}} + \tensor{\Gamma}{^{\phi}_{\theta\theta}}\tensor{\Gamma}{^{\phi}_{\phi\phi}} - \tensor{\Gamma}{^{\theta}_{\theta\phi}}\tensor{\Gamma}{^{\phi}_{\theta\theta}} - \tensor{\Gamma}{^{\phi}_{\theta\phi}}\tensor{\Gamma}{^{\phi}_{\phi\theta}},\\
+            &= -\left(\dfrac{1}{\sin^{2}\theta}\right) - \cot^{2}\theta,\\
+            \Acolorboxed{\tensor{R}{^{\phi}_{\theta\phi\theta}} &= 1 = - \tensor{R}{^{\phi}_{\theta\theta\phi}}.}
+          \end{align*}
+
+          De esta manera, las componentes restantes del tensor de Riemann se anulan.
+
+          Ahora, las componentes del tensor de Ricci que debemos calcular son:
+
+          \begin{align*}
+            \tensor{R}{_{\phi\phi}} &= \tensor{R}{^{\sigma}_{\phi\sigma\phi}} = \tensor{R}{^{\theta}_{\phi\theta\phi}} + \tensor{R}{^{\phi}_{\phi\phi\phi}},\\
+            \tensor{R}{_{\phi\theta}} &= \tensor{R}{_{\theta\phi}} = \tensor{R}{^{\sigma}_{\phi\sigma\theta}} = \tensor{R}{^{\theta}_{\phi\theta\theta}} + \tensor{R}{^{\phi}_{\phi\phi\theta}},\\
+            \tensor{R}{_{\theta\theta}} &= \tensor{R}{^{\sigma}_{\theta\sigma\theta}} = \tensor{R}{^{\theta}_{\theta\theta\theta}} + \tensor{R}{^{\phi}_{\theta\phi\theta}}.
+          \end{align*}
+
+          Así,
+
+          \begin{empheq}[box = \color{pinkwave}\fbox]{align*}
+            \tensor{R}{_{\phi\phi}} &= \sin^{2}\theta,\\
+            \tensor{R}{_{\phi\theta}} &= \tensor{R}{_{\theta\phi}} = 0,\\
+            \tensor{R}{_{\theta\theta}} &= 1.
+          \end{empheq}
+
+          Finalmente, calculamos el escalar de Ricci, tal que,
+
+          \begin{equation*}
+            R = \tensor{g}{^{\mu\nu}}\tensor{R}{_{\mu\nu}} = \tensor{g}{^{\theta\theta}}\tensor{R}{_{\theta\theta}} + \tensor{g}{^{\phi\phi}}\tensor{R}{_{\phi\phi}}.
+          \end{equation*}
+
+          Así,
+
+          \begin{empheq}[box = \color{pinkwave}\fbox]{equation*}
+            R = 2.
+          \end{empheq}
+        \end{solution}
+      \end{enumerate}
+    \end{exercise}
+    
+    % Problema 2
+    \pagebreak
+    \begin{exercise}
+      Partiendo de la identidad de Bianchi
+
+      \begin{equation}
+        \cdif{\lambda}\tensor{R}{^{\alpha}_{\beta\mu\nu}} 
+        + \cdif{\mu}\tensor{R}{^{\alpha}_{\beta\nu\lambda}}
+        + \cdif{\nu}\tensor{R}{^{\alpha}_{\beta\lambda\mu}}
+        = 0
+        \label{eq:BianchiIdentity}
+      \end{equation}
+
+      demuestra que el tensor de Ricci cumple
+
+      \begin{equation*}
+        \cdif[order={\mu}]{\phantom{i}}\left(\tensor{R}{_{\mu\nu}} - \dfrac{1}{2}R\tensor{g}{_{\mu\nu}}\right) = 0.
+      \end{equation*}
+
+      \emph{Hint:} contrae los índices \(\alpha\) y \(\mu\) de la identidad de Bianchi y usa que la conexión de Levi Civita es compatible con la métrica, así como las simetrías de los tensores involucrados.
+
+      \begin{solution}
+        Comenzamos contrayendo \(\alpha\) con \(\mu\) en cada uno de los términos de \cref{eq:BianchiIdentity}.
+
+        \begin{align}
+          \cdif{\lambda}\tensor{R}{^{\mu}_{\beta\mu\nu}} + \cdif{\mu}\tensor{R}{^{\mu}_{\beta\nu\lambda}} + \cdif{\nu}\tensor{R}{^{\mu}_{\beta\lambda\mu}} &= 0,\nonumber\\
+          \cdif{\lambda}\tensor{R}{_{\beta\nu}} + \cdif{\alpha}\tensor{R}{^{\alpha}_{\beta\nu\lambda}} - \cdif{\nu}\tensor{R}{_{\beta\lambda}} &= 0,\label{eq:FirstContractionInBianchiIdentity}
+        \end{align}
+
+        donde \(\tensor{R}{_{\beta\nu}}\) es el tensor de Ricci y \(\tensor{R}{_{\beta\lambda}}\) es el negativo de este, por la contracción 3) que se encuentra en las notas.
+
+        Usando la compatibilidad de la métrica, \idest \(\cdif{\alpha} \tensor{g}{^{\beta\lambda}} = 0\) podemos contraer más índices. Así, \cref{eq:FirstContractionInBianchiIdentity} queda como:
+
+        \begin{align}
+          \tensor{g}{^{\beta\lambda}}\cdif{\lambda}\tensor{R}{_{\beta\nu}} + \tensor{g}{^{\beta\lambda}}\cdif{\alpha}\tensor{R}{^{\alpha}_{\beta\nu\lambda}} - \tensor{g}{^{\beta\lambda}}\cdif{\nu}\tensor{R}{_{\beta\lambda}} &= 0,\nonumber\\
+          \cdif{\lambda}\left(\tensor{g}{^{\beta\lambda}}\tensor{R}{_{\beta\nu}}\right) + \cdif{\alpha}\left(\tensor{g}{^{\beta\lambda}}\tensor{R}{^{\alpha}_{\beta\nu\lambda}}\right) - \cdif{\nu}\left(\tensor{g}{^{\beta\lambda}}\tensor{R}{_{\beta\lambda}}\right) &= 0,\nonumber\\
+          \cdif{\lambda}\tensor{R}{^{\lambda}_{\nu}} + \cdif{\alpha}\tensor{R}{^{\alpha}_{\nu}} - \cdif{\nu}R &= 0.\label{eq:SecondContractionInBianchiIdentity} 
+        \end{align}
+
+        Escribiendo \(\cdif{\lambda}\) como
+        
+        \begin{equation}
+          \cdif{\lambda} = \cdif[order = {\mu}]{\phantom{i}}\tensor{g}{_{\lambda\mu}}.
+          \label{eq:LoweringIndexInLeviCivitaConection}
+        \end{equation}
+
+        \pagebreak
+        Por \cref{eq:LoweringIndexInLeviCivitaConection}, \cref{eq:SecondContractionInBianchiIdentity} queda
+
+        \begin{align*}
+          \cdif[order = {\mu}]{\phantom{i}}\tensor{g}{_{\lambda\mu}}\tensor{R}{^{\lambda}_{\nu}} + \cdif[order = {\mu}]{\phantom{i}}\tensor{g}{_{\alpha\mu}}\tensor{R}{^{\alpha}_{\nu}} - \cdif[order = {\mu}]{\phantom{i}}\tensor{g}{_{\nu\mu}}R &= 0,\\
+          \cdif[order = {\mu}]{\phantom{i}}\tensor{R}{_{\mu\nu}} + \cdif[order = {\mu}]{\phantom{i}}\tensor{R}{_{\mu\nu}} - \cdif[order = {\mu}]{\phantom{i}}\tensor{g}{_{\mu\nu}}R &= 0,\\
+          2\cdif[order = {\mu}]{\phantom{i}}\tensor{R}{_{\mu\nu}} - \cdif[order = {\mu}]{\phantom{i}}R\tensor{g}{_{\mu\nu}} &= 0,\\
+          \cdif[order = {\mu}]{\phantom{i}}\left(2\tensor{R}{_{\mu\nu}} - R\tensor{g}{_{\mu\nu}}\right) &= 0,\\
+          \Acolorboxed{\cdif[order = {\mu}]{\phantom{i}}\left(\tensor{R}{_{\mu\nu}} - \dfrac{1}{2}R\tensor{g}{_{\mu\nu}}\right) &= 0.}
+        \end{align*}
+      \end{solution}
+    \end{exercise}
+    
+    % Problema 3
+    \pagebreak
+    \begin{exercise}
+      El ansatz para la solución	 de Schwarzschild (esféricamente simétrica) que discutimos en clase se escribe en coordenadas polares como
+
+      \begin{equation}
+        \odif{s^{2}} = -f(r)\odif{t^{2}} + h(r)\odif{r^{2}} + r^{2}(\odif{\theta^{2}} + \sin^{2}\theta\odif{\varphi^{2}}).
+        \label{eq:MetricProblem3}
+      \end{equation}
+
+      Sustituir esta métrica en las ecuaciones de Einstein lleva a las siguientes tres ecuaciones diferenciales independientes (las demás componentes se satisfacen automáticamente)
+
+      \begin{align}
+        -rh(r)\tensor{f}{^{\prime}}(r)^{2} + f(r)(2h(r)(r\tensor{f}{^{\prime\prime}}(r) + \tensor{f}{^{\prime}}(r)) - r\tensor{f}{^{\prime}}(r)\tensor{h}{^{\prime}}(r)) - 2f(r)^{2}\tensor{h}{^{\prime}}(r) &= 0,\label{eq:DiffEq1}\\
+        r\tensor{h}{^{\prime}}(r) + h(r)^{2} - h(r) &= 0,\label{eq:DiffEq2}\\
+        r\tensor{f}{^{\prime}}(r) - f(r)h(r) + f(r) &= 0.\label{eq:DiffEq3}
+      \end{align}
+
+      En este problema resolverás este sistema de ecuaciones.
+
+      \begin{enumerate}[label = \alph*)]
+        \item Usa (\ref{eq:DiffEq2}) y (\ref{eq:DiffEq3}) para demostrar que
+        
+        \begin{equation}
+          f(r) = \dfrac{k}{h(r)},
+        \end{equation}
+
+        con \(k\) una constante arbitraria que fijaremos a 1 sin pérdida de generalidad.
+
+        \begin{solution}
+          Primero, multiplicamos \cref{eq:DiffEq2} por \(f(r)\) y \cref{eq:DiffEq3} por \(h(r)\).
+
+          \begin{align}
+            rh^{\prime}f + fh^{2} - fh &= 0,\label{eq:DiffEq2ByF}\\
+            rf^{\prime}h + fh^{2} + fh &= 0,\label{eq:DiffEq3ByH}
+          \end{align}
+
+          donde \(f(r) = f\) y \(h(r) = h\).
+
+          Ahora, sumamos \cref{eq:DiffEq2ByF,eq:DiffEq3ByH},
+
+          \begin{align}
+            r(h^{\prime}f + hf^{\prime}) &= 0,\nonumber\\
+            r(hf)^{\prime} &= 0,\nonumber\\
+            \odv[fun=true]{hf}{r} &= 0.\label{eq:DiffEqOfSum}
+          \end{align}
+
+          Integrando \cref{eq:DiffEqOfSum} respecto a \(r\).
+
+          \begin{align*}
+            h(r)f(r) + C &= 0,\\
+            h(r)f(r) &= k,\\
+            f(r) &= \dfrac{k}{h(r)}.
+          \end{align*}
+
+          Igualando \(k = 1\), la expresión anterior queda como:
+
+          \begin{empheq}[box = \color{pinkwave}\fbox]{equation}
+            f(r) = \dfrac{1}{h(r)}.
+            \label{eq:FInTermsOfH}
+          \end{empheq}
+        \end{solution}
+
+        \item Esto te deja con 2 ecuaciones para una sola variable \(h(r)\), una de primer orden y otra de segundo orden. Demuestra que no son independientes derivando la de primer orden respecto a \(r\) y sustituyendo en la de segundo orden.
+        
+        \begin{solution}
+          Desarrollando \cref{eq:DiffEq1} y usando que \(hf = 1\) obtenemos que:
+
+          \begin{align}
+            -rh{f^{\prime}}^{2} + 2rf^{\prime\prime}fh + 2f^{\prime}fh - rf^{\prime}fh^{\prime} - 2f^{2}h^{\prime} &= 0,\nonumber\\
+            -rh{f^{\prime}}^{2} + 2rf^{\prime\prime} + 2f^{\prime} -rf^{\prime}fh^{\prime} - 2f^{2}h^{\prime} &= 0.\label{eq:DiffEq2Reduce1}
+          \end{align}
+
+          Calculamos la primera y segunda derivada de \cref{eq:FInTermsOfH},
+
+          \begin{align*}
+            f^{\prime} &= \dfrac{-h^{\prime}}{h^{2}},\\
+            f^{\prime\prime} &= \dfrac{-h^{\prime\prime}h^{2} + 2{h^{\prime}}^{2}h}{h^{4}}.
+          \end{align*}
+
+          Sustituyendo las derivadas correspondientes en \cref{eq:DiffEq2Reduce1},
+
+          \begin{align}
+            -rh\dfrac{{h^{\prime}}^{2}}{h^{4}} + 2r\left(\dfrac{-h^{\prime\prime}h^{2} + 2{h^{\prime}}^{2}h}{h^{4}}\right) - r\left(\dfrac{-h^{\prime}}{h^{2}}\right)\left(\dfrac{1}{h}\right)h^{\prime} - 2\left(\dfrac{1}{h^{2}}\right)h^{\prime} &= 0,\nonumber\\
+            \dfrac{rh^{\prime\prime}h^{2} - 2r{h^{\prime}}^{2}h + 2h^{\prime}h^{2}}{h^{4}} &= 0,\nonumber\\
+            \Aboxed{h(r)(rh^{\prime\prime}(r) + 2h^{\prime}(r)) - 2rh^{\prime}(r)^{2} &= 0.}\label{eq:DiffEq4}
+          \end{align}
+
+          Derivando \cref{eq:DiffEq2} respecto a \(r\),
+
+          \begin{align*}
+            \odv[fun=true]{rh^{\prime} + h^{2} - h}{r} &= h^{\prime} + rh^{\prime\prime} + 2hh^{\prime} - h^{\prime},\\
+            &= rh^{\prime\prime} + 2h(r)h^{\prime}.
+          \end{align*}
+
+          Puesto que la expresión anterior aparece en \cref{eq:DiffEq4}, podemos concluir que no son independientes, ya que \cref{eq:DiffEq4} se puede escribir como combinación lineal de \cref{eq:DiffEq2}.
+        \end{solution}
+        
+        \item Finalmente demuestra que la solución general a la única ecuación de primer orden para \(h(r)\) es
+        
+        \begin{equation}
+          h(r) = \left(1 + \dfrac{C}{r}\right)^{-1},
+        \end{equation}
+
+        donde \(C\) es una constante de integración arbitraria.
+
+        \begin{solution}
+          Finalmente, resolvemos \cref{eq:DiffEq3} para encontrar la solución general. Primero, reescribimos la ec. diferencial, tal que,
+
+          \begin{equation*}
+            rh^{\prime} - h = -h^{2}.
+          \end{equation*}
+
+          Notamos que es una ec. diferencial de Bernoulli. Así, \(u = h^{-1}\ \implies h = u^{-1}\ \wedge h^{\prime} = -u^{\prime}u^{-2}\). Sustituyendo
+
+          \begin{equation*}
+            u^{\prime} + \dfrac{1}{r}u = \dfrac{1}{r}.
+          \end{equation*}
+
+          Ahora, para resolver esta nueva ecuación diferencial, tenemos
+
+          \begin{align*}
+            \mu &= \e^{\int\frac{1}{r}\odif{r}},\\
+            &= \e^{\log(r) + C_{1}},\\
+            &= \e^{\log(r)}\e^{C_{1}},\\
+            \Aboxed{\mu &= rC_{2}.}
+          \end{align*}
+
+          \pagebreak
+          Así,
+
+          \begin{align*}
+            u &= \int \dfrac{1}{r}rC_{2}\odif{r},\\
+            &= C_{2}\int\odif{r},\\
+            \Aboxed{u &= \dfrac{r + C}{r}.}
+          \end{align*}
+
+          Y sabemos que \(h^{-1} = u\), entonces
+
+          \begin{empheq}[box = \fbox]{equation*}
+            h^{-1}(r) = 1 + \dfrac{C}{r}.
+          \end{empheq}
+
+          Por lo tanto, la solución general es
+
+          \begin{empheq}[box = \color{pinkwave}\fbox]{equation*}
+            h(r) = \left(1 + \dfrac{C}{r}\right)^{-1}.
+          \end{empheq}
+        \end{solution}
+      \end{enumerate}
+    \end{exercise}
+\end{document}
