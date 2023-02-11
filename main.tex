@@ -7,6 +7,7 @@
 \usepackage{bm}
 \usepackage{bookmark}
 % \usepackage{breqn}
+\usepackage{chemformula}
 \usepackage{derivative}
 \usepackage{empheq}
 \usepackage[inline]{enumitem}
@@ -127,8 +128,8 @@
     menubordercolor={[rgb]{0,0.2,0.6}},% 
     pdftitle={Tarea 1},%
     pdfauthor={López Merino Marcos},%
-    pdfsubject={Mecánica Analítica},%
-    pdfkeywords={Facultad de Ciencias, UNAM, Mecánica Analítica},%
+    pdfsubject={Introducción a la Física Nuclear},%
+    pdfkeywords={Facultad de Ciencias, UNAM, Introducción a la Física Nuclear},%
     unicode = true%
 }
 
@@ -138,12 +139,13 @@
 	output-decimal-marker = {.}, 
 	per-mode = symbol-or-fraction,
 	separate-uncertainty = false,
-	exponent-product = \cross,
+	exponent-product = \mul,
     % inter-unit-product = \ensuremath{{}\vdot{}}
 }
 
 % Declaring new units
 \DeclareSIUnit\kilogram{\kilo\gram}
+\DeclareSIUnit\nucleones{\text{nucleones}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -158,8 +160,8 @@
 }
 
 %%%%%%%%%%%%%%%%%%Nuevos comandos%%%%%%%%%%%%%%%%%%
-\newcommand*{\group}{8195}
-\newcommand*{\classname}{Mecánica Analítica}
+\newcommand*{\group}{8316}
+\newcommand*{\classname}{Introducción a la Física Nuclear}
 \newcommand*{\homeworknumber}{Tarea 1}
 \newcommand*{\name}{Marcos López Merino}
 
@@ -272,142 +274,43 @@
     \thispagestyle{fancy}
 
     % Problema 1
-    \begin{exercise}[\textcolor{red}{1.5}]
-      Comprobar la ecuación
-
-      \begin{equation*}
-        \crossprod{\vect{A}}{\left(\crossprod{\vect{B}}{\vect{C}}\right)} = \left(\dotprod{\vect{A}}{\vect{C}}\right)\vect{B} - \left(\dotprod{\vect{A}}{\vect{B}}\right)\vect{C}.
-      \end{equation*}
-
-      \textbf{desarrollando ambos miembros} en función de las componentes cartesianas de los vectores. Hállese el triple producto vectorial \(\vect{A} \mul \left(\vect{B} \mul \vect{C}\right)\) de los tres vectores
-
-      \begin{equation*}
-        \vect{A} = 3\uveci + \uvecj + 5\uvectk,\quad \vect{B} = -\uveci + 4\uvecj - 2\uvectk,\quad \vect{C} = 2\uveci - \uvecj + \uvectk.
-      \end{equation*}
+    \begin{exercise}
+      Escribir la fórmula semi-empírica para la energía de enlace \(B(Z, A)\) (Fórmula de Weizsäcker) para un núcleo con \(A = 14\).
     \end{exercise}
-    
+
     % Problema 2
-    \begin{exercise}[\textcolor{red}{1.11}]
-      Hállese el conjunto recíproco de vectores del conjunto de vectores no coplanares.
-
-      \begin{enumerate}[label = \alph*)]
-        \item 
-        
-          \begin{align*}
-            \vect{b}_{1} &= 2\uveci + \uvecj + 4\uvectk,\\
-            \vect{b}_{2} &= \uveci + 3\uvectk,\\
-            \vect{b}_{3} &= -3\uveci - 4\uvecj - \uvectk.
-          \end{align*}
-
-        \item 
-          
-          \begin{align*}
-            \vect{b}_{1} &= \uveci + 2\uvecj + 2\uvectk,\\
-            \vect{b}_{2} &= -3\uveci - 4\uvecj + 2\uvectk,\\
-            \vect{b}_{3} &= 2\uveci - \uvecj - \uvectk.
-          \end{align*}
-      \end{enumerate}
+    \begin{exercise}
+      Graficar la masa semi-empírica \(M(Z, A)\) para \(A = 14\) como función de \(Z\).
     \end{exercise}
-    
+
     % Problema 3
-    \begin{exercise}[\textcolor{red}{1.12}]
-      \begin{enumerate}[label = \roman*)]
-        \item Exprese los vectores
-        
-        \begin{equation*}
-          \vect{A} = 2\uveci - 4\uvecj + 3\uvectk,\quad \vect{B} = -3\uveci + 2\uvecj - \uvectk,
-        \end{equation*}
+    \begin{exercise}
+      Demuestre que el isóbaro de menor masa es el \ch{^{14}N}, que además es el único estable. Todos los demás isóbaros decaen por emisión \(\beta\).
+      \textbf{Hint: Derivar y buscar \(Z\) mínimo}
 
-        en función de una suma lineal de los vectores no coplanares del problema anterior (\textcolor{red}{1.11}) y en función de una suma lineal de sus vectores recíprocos.
-
-        \item Evaluar \(\dotprod{\vect{A}}{\vect{B}}\) y \(\crossprod{\vect{A}}{\vect{B}}\) utilizando los productos escalares \(\alpha_{i},\ \beta_{i},\ \alpha_{i}^{*}\) y \(\beta_{i}^{*}\) de \(\vect{A}\) y \(\vect{B}\) con el conjunto de vectores no coplanares encontrados en i) y sus vectores recíprocos. Compárese la respuesta con los productos escalar y vectorial de estos tres vectores evaluados en función de las componentes cartesianas de \(\vect{A}\) y \(\vect{B}\).
-        
-      \end{enumerate}
+      \begin{equation}
+        \left[\pdv{M(Z, A)}{Z}\right]_{A = \text{cte} = 14} = 0.
+      \end{equation}
     \end{exercise}
-    
+
     % Problema 4
-    \begin{exercise}[\textcolor{red}{1.16}]
-      La derivada del vector \(\vect{A}(t)\) de magnitud constante se demostró que puede ser expresada como un producto vectorial
-      
-      \begin{equation*}
-        \odv{\vect{A}(t)}{t} = \crossprod{\vect{\omega}}{\vect{A}(t)},
-      \end{equation*}
+    \begin{exercise}
+      A partir de \(\rho(r)\), ecuación \cref{eq:densitydistribution}, y  los datos dados en \cref{eq:density0} calcular y graficar la distribución de densidad de nucleones en \ch{^{238}U}.
 
-      Sin embargo, \(\vect{\omega}\) no es única, ya que la suma del término \(c\vect{A}\) a \(\vect{\omega}\) producirá el mismo resultado. Por otro lado, la derivada de dos vectores de magnitud constante puede determinar una \(\vect{\omega}\) única, en función de la cual sus derivadas son expresables en la forma
+      \begin{equation}
+        \rho(r) = \dfrac{\rho_{0}}{1 + \exp[\frac{r - R}{a}]}.
+        \label{eq:densitydistribution}
+      \end{equation}
 
-      \begin{equation*}
-        \odv*{\vect{A}(t)}{t} = \crossprod{\vect{\omega}}{\vect{A}}\qquad \text{y} \qquad \odv*{\vect{B}(t)}{t} = \crossprod{\vect{\omega}}{\vect{B}}.
-      \end{equation*}
-
-      Considerando los vectores unidad
-
-      \begin{align*}
-        \basevect{1} &= \sin\alpha t\cos\beta t\uveci + \sin\alpha t\sin\beta t\uvecj + \cos\alpha t\uvectk,\\
-        \basevect{2} &= \cos\alpha t\cos\beta t\uveci + \cos\alpha t\sin\beta t\uvecj - \sin\alpha t\uvectk,\\
-        \basevect{3} &= -\sin\beta t\uveci + \cos\beta t\uvecj,
-      \end{align*}
-
-      hállese el vector de la velocidad angular \(\vect{\omega}\) que satisface las ecuaciones
-
-      \begin{equation*}
-        \odv*{\basevect{1}}{t} = \crossprod{\vect{\omega}}{\basevect{1}}\qquad \text{y} \qquad \odv*{\basevect{2}}{t} = \crossprod{\vect{\omega}}{\basevect{2}}.
-      \end{equation*}
-
-      Demostrar que la misma \(\vect{\omega}\) también nos da
-
-      \begin{equation*}
-        \odv*{\basevect{3}}{t} = \crossprod{\vect{\omega}}{\basevect{3}}.
-      \end{equation*}
+      \begin{align}
+        \rho_{0} &\simeq \SI[per-mode = symbol]{1.65e44}{\nucleones\per\cubic\metre} = \SI[per-mode = symbol]{0.165}{\nucleones\per\femto\metre\cubed},\label{eq:density0}\\
+        R &\simeq \SI[parse-numbers=false]{1.07 A^{\frac{1}{3}}}{\femto\metre},\nonumber\\
+        a &\simeq \SI{0.55}{\femto\metre}.\nonumber
+      \end{align}
     \end{exercise}
-    
+
     % Problema 5
-    \begin{exercise}[\textcolor{red}{1.18}]
-      \begin{enumerate}[label = \alph*)]
-        \item Demostrar que los productos escalares \(\alpha_{i}\) y \(\alpha_{i}^{*}\) del vector \(\vect{A}\) por los vectores base \(\vect{b}_{i}\) y sus recíprocos \(\vect{\bm{b}}_{i}\), están relacionados linealmente como se indica por
-        
-        \begin{equation*}
-          \alpha_{i}^{*} = \sum_{j}g_{ij}^{*}\alpha_{j}\qquad \text{y}\qquad \alpha_{i} = \sum_{j}g_{ij}\alpha_{j}^{*},
-        \end{equation*}
-
-        Exprésense los escalares \(g_{ij}\) y \(g_{ij}^{*}\) en función de los vectores base \(\vect{b}_{i}\) y los vectores recíprocos \(\vect{\bm{b}}_{i}\). (Obsérvese que los \(g_{ij}\) son las componentes covariantes del tensor métrico y las \(g_{ij}^{*}\) son las componentes contravariantes del mismo.)
-
-        \item Demostrar que el producto escalar de dos vectores \(\vect{A}\) y \(\vect{B}\) como
-        
-        \begin{equation*}
-          \dotprod{\vect{A}}{\vect{B}} = \sum_{ij}g_{ij}^{*}\alpha_{i}\beta_{j} = \sum_{ij}g_{ij}\alpha_{i}^{*}\beta_{j}^{*}.
-        \end{equation*}
-      \end{enumerate}
-    \end{exercise}
-    
-    % Problema 6
-    \begin{exercise}[\textcolor{red}{1.20}]
-      Comprobar para las ecuaciones
-
-      \begin{equation*}
-        \vect{b}_{1} = \dfrac{\crossprod{\vect{\bm{b}}_{2}}{\vect{\bm{b}}_{3}}}{\dotprod{\vect{\bm{b}_{1}}}{\crossprod{\vect{\bm{b}}_{2}}{\vect{\bm{b}}_{3}}}},\quad
-        \vect{b}_{2} = \dfrac{\crossprod{\vect{\bm{b}}_{3}}{\vect{\bm{b}}_{1}}}{\dotprod{\vect{\bm{b}_{1}}}{\crossprod{\vect{\bm{b}}_{2}}{\vect{\bm{b}}_{3}}}},
-        \quad
-        \vect{b}_{3} = \dfrac{\crossprod{\vect{\bm{b}}_{1}}{\vect{\bm{b}}_{2}}}{\dotprod{\vect{\bm{b}_{1}}}{\crossprod{\vect{\bm{b}}_{2}}{\vect{\bm{b}}_{3}}}}
-      \end{equation*}
-
-      que los vectores \(\vect{b}_{1},\ \vect{b}_{2}\) y \(\vect{b}_{3}\) son recíprocos \(\vect{\bm{b}}_{1},\ \vect{\bm{b}}_{2}\) y \(\vect{\bm{b}}_{3}\).
-    \end{exercise}
-    
-    % Problema 7
-    \begin{exercise}[\textcolor{red}{2.2}]
-      Obtener las expresiones de las componentes polares de la velocidad y la aceleración de las partículas cuyo vector bidimensional de posición es:
-
-      \begin{equation*}
-        r = \dfrac{5}{2 - \cos\phi},\qquad \phi = \omega t.
-      \end{equation*}
-    \end{exercise}
-    
-    % Problema 8
-    \begin{exercise}[\textcolor{red}{2.3}]
-      Hállese, explícitamente, la velocidad y la aceleración de una partícula que se mueve a lo largo de una hélice circular definida por las coordenadas cilíndricas.
-
-      \begin{equation*}
-        \rho = a,\qquad \phi = \omega t\qquad \text{y} \qquad z = -ct,\qquad a,\ b,\ c \in \vecspace{R}.
-      \end{equation*}
+    \begin{exercise}
+      Demuestra que la emisión alfa de \ch{^{226}_{88}Ra -> ^{222}_{86}Rn + ^{4}_{2}He} es enérgicamente posible y calcule el valor de la energía liberada \(Q\) en el proceso. Para el valor de las masas puede apoyarse del apéndice C del libro Introductory Nuclear Physics. Krane, Kenneth S. John Wiley and Sons. 1987 o de cualquier referencia dada en la conferencia 1.
     \end{exercise}
 \end{document}
