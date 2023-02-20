@@ -275,42 +275,77 @@
 
     % Problema 1
     \begin{exercise}
-      Escribir la fórmula semi-empírica para la energía de enlace \(B(Z, A)\) (Fórmula de Weizsäcker) para un núcleo con \(A = 14\).
+      La relación para la velocidad relativa es:
+
+      \begin{equation}
+        \beta = \dfrac{v}{c} = \left[\dfrac{2E}{m_{0}c^{2}}\right]^{\frac{1}{2}},
+      \end{equation}
+
+      y la expresión para la energía cinética se ve como:
+
+      \begin{equation}
+        E = mc^{2} - m_{0}c^{2},
+      \end{equation}
+
+      donde:
+
+      \begin{equation}
+        m = \dfrac{m_{0}}{\sqrt{1 - \beta^{2}}}.
+      \end{equation}
+
+      \begin{enumerate}[label = \alph*)]
+        \item Utilizando las expresiones anteriores, realiza el procedimiento algebraico para llegar a:
+        
+        \begin{equation}
+          \beta = \dfrac{v}{c} = \left[\dfrac{(E + m_{0}c^{2})^{2} - (m_{0}c^{2})^{2}}{(E + m_{0}c^{2})^{2}}\right]^{\frac{1}{2}}.
+          \label{eq:energyBetaRelationship}
+        \end{equation}
+
+        \item Si
+        
+        \begin{equation}
+          \dfrac{E}{m_{0}c^{2}} \ll 1.
+        \end{equation}
+
+        ¿A qué se reduce la energía \cref{eq:energyBetaRelationship}?
+      \end{enumerate}
     \end{exercise}
 
     % Problema 2
+    \pagebreak
     \begin{exercise}
-      Graficar la masa semi-empírica \(M(Z, A)\) para \(A = 14\) como función de \(Z\).
-    \end{exercise}
-
-    % Problema 3
-    \begin{exercise}
-      Demuestre que el isóbaro de menor masa es el \ch{^{14}N}, que además es el único estable. Todos los demás isóbaros decaen por emisión \(\beta\).
-      \textbf{Hint: Derivar y buscar \(Z\) mínimo}
+      La expresión clásica de la energía cinética es:
 
       \begin{equation}
-        \left[\pdv{M(Z, A)}{Z}\right]_{A = \text{cte} = 14} = 0.
+        E = \dfrac{1}{2}mv^{2}.
+        \label{eq:ClassicKineticEnergy}
       \end{equation}
-    \end{exercise}
 
-    % Problema 4
-    \begin{exercise}
-      A partir de \(\rho(r)\), ecuación \cref{eq:densitydistribution}, y  los datos dados en \cref{eq:density0} calcular y graficar la distribución de densidad de nucleones en \ch{^{238}U}.
+      Usando la expresión \cref{eq:energyBetaRelationship}, realiza los cálculos de la velocidad \(\beta\) en función de la energía cinética y la masa:
 
       \begin{equation}
-        \rho(r) = \dfrac{\rho_{0}}{1 + \exp[\frac{r - R}{a}]}.
-        \label{eq:densitydistribution}
+        \beta = \dfrac{v}{c} = f(E, m_{0}).
       \end{equation}
 
-      \begin{align}
-        \rho_{0} &\simeq \SI[per-mode = symbol]{1.65e44}{\nucleones\per\cubic\metre} = \SI[per-mode = symbol]{0.165}{\nucleones\per\femto\metre\cubed},\label{eq:density0}\\
-        R &\simeq \SI[parse-numbers=false]{1.07 A^{\frac{1}{3}}}{\femto\metre},\nonumber\\
-        a &\simeq \SI{0.55}{\femto\metre}.\nonumber
-      \end{align}
-    \end{exercise}
+      Coloca la tabla de tus resultados y la gráfica en escala semilogarítmica (ya que solo un eje va de forma logarítmica) para las siguientes energías (también se incluyen las masas con las que se tienen que trabajar):
 
-    % Problema 5
-    \begin{exercise}
-      Demuestra que la emisión alfa de \ch{^{226}_{88}Ra -> ^{222}_{86}Rn + ^{4}_{2}He} es enérgicamente posible y calcule el valor de la energía liberada \(Q\) en el proceso. Para el valor de las masas puede apoyarse del apéndice C del libro Introductory Nuclear Physics. Krane, Kenneth S. John Wiley and Sons. 1987 o de cualquier referencia dada en la conferencia 1.
+      \begin{table}[!htb]
+        \centering
+        \begin{tblr}{
+          colspec=llllllllllllll, rowsep=1.2pt,
+          vlines, hline{1,3,4,5,6,7},
+          cell{1}{4}={c=11}{c}, cell{1}{1}={r=2}{l},
+          cell{1}{2}={r=2}{c}, cell{1}{3}={r=2}{c},
+          cell{3-6}{2}={c}, cell{3-6}{3}={c},
+        }
+            Partículas & uma [u] & Masas [\si[parse-numbers=false]{\MeV\per c^{2}}] & Energía [\si[parse-numbers=false]{\MeV\per c^{2}}] & 1-10\\
+              & & & \(10^{0}\) & \(10^{1}\) & \(10^{2}\) & \(10^{3}\) & \(10^{4}\) & \(10^{5}\) & \(10^{6}\) & \(10^{7}\) & \(10^{8}\) & \(10^{9}\) & \(10^{10}\) \\
+              Protón & 1.007 & 928.272 & & & & & & & & & & & \\
+              Deuterio & 2.014 & 1875.612 & & & & & & & & & & & \\
+              Helio-4 & 4.002 & 3727.838 & & & & & & & & & & & \\
+              Carbono-12 & 12.000 & 11177.928 & & & & & & & & & & & 
+        \end{tblr}
+        \caption{Tabla de las masas a usar y las energías (las van a graficar en escala logarítmica) correspondientes para los cálculos.}
+      \end{table}
     \end{exercise}
 \end{document}
