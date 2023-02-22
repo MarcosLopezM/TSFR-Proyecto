@@ -126,10 +126,10 @@
     urlbordercolor={[rgb]{0.8,0,0.8}},%
     runbordercolor={[rgb]{0.8,0,0.8}},%
     menubordercolor={[rgb]{0,0.2,0.6}},% 
-    pdftitle={Tarea 1},%
+    pdftitle={Tarea 2},%
     pdfauthor={López Merino Marcos},%
     pdfsubject={Introducción a la Física Nuclear},%
-    pdfkeywords={Facultad de Ciencias, UNAM, Introducción a la Física Nuclear},%
+    pdfkeywords={Facultad de Ciencias, UNAM, Introducción a la Física Nuclear, Experimental},%
     unicode = true%
 }
 
@@ -162,7 +162,7 @@
 %%%%%%%%%%%%%%%%%%Nuevos comandos%%%%%%%%%%%%%%%%%%
 \newcommand*{\group}{8316}
 \newcommand*{\classname}{Introducción a la Física Nuclear}
-\newcommand*{\homeworknumber}{Tarea 1}
+\newcommand*{\homeworknumber}{Tarea 2}
 \newcommand*{\name}{Marcos López Merino}
 
 % unit vector i
@@ -275,77 +275,24 @@
 
     % Problema 1
     \begin{exercise}
-      La relación para la velocidad relativa es:
+      Calcular la masas total del planeta Tierra con los siguientes datos:
 
-      \begin{equation}
-        \beta = \dfrac{v}{c} = \left[\dfrac{2E}{m_{0}c^{2}}\right]^{\frac{1}{2}},
-      \end{equation}
+      Suponiendo que se trata de una esfera de radio \(r = \SI{6400}{\km}\); y que además la Tierra está constituida por los siguientes porcentajes de elementos: \SI{37}{\percent} de \ch{Fe}, \SI{25}{\percent} de \ch{Si}, \SI{13}{\percent} de \ch{Mg}, \SI{10}{\percent} de \ch{Ni}, \SI{8}{\percent} de \ch{Ca} y \SI{7}{\percent} de \ch{K}.
 
-      y la expresión para la energía cinética se ve como:
-
-      \begin{equation}
-        E = mc^{2} - m_{0}c^{2},
-      \end{equation}
-
-      donde:
-
-      \begin{equation}
-        m = \dfrac{m_{0}}{\sqrt{1 - \beta^{2}}}.
-      \end{equation}
-
-      \begin{enumerate}[label = \alph*)]
-        \item Utilizando las expresiones anteriores, realiza el procedimiento algebraico para llegar a:
-        
-        \begin{equation}
-          \beta = \dfrac{v}{c} = \left[\dfrac{(E + m_{0}c^{2})^{2} - (m_{0}c^{2})^{2}}{(E + m_{0}c^{2})^{2}}\right]^{\frac{1}{2}}.
-          \label{eq:energyBetaRelationship}
-        \end{equation}
-
-        \item Si
-        
-        \begin{equation}
-          \dfrac{E}{m_{0}c^{2}} \ll 1.
-        \end{equation}
-
-        ¿A qué se reduce la energía \cref{eq:energyBetaRelationship}?
-      \end{enumerate}
+      Se debe calcular la densidad de esos materiales \(\rho = \left[\unit[per-mode=fraction]{\gram\per\cm\cubed}\right]\) que se requieren para calcular el peso total de la Tierra.
     \end{exercise}
 
     % Problema 2
-    \pagebreak
     \begin{exercise}
-      La expresión clásica de la energía cinética es:
+      Por otro lado, se puede ilustrar que la materia a nivel microscópico es hueva. Hacer el siguiente cálculo:
 
-      \begin{equation}
-        E = \dfrac{1}{2}mv^{2}.
-        \label{eq:ClassicKineticEnergy}
-      \end{equation}
+      Suponer que se tiene un balín esférico de radio \(r = \SI{1}{\cm}\) compuesto de \ch{^{nat} Fe} (con \(A = 54\) (\SI{6}{\percent}), \(A = 56\) (\SI{92}{\percent}) y \(A = 57\) (\SI{2}{\percent}), isótopos más abundantes del \ch{Fe}). Calcular el volumen de un núcleo de \ch{Fe} cuyo radio es \(r = r_{0}A^{\sfrac{1}{3}}\). Suponiendo que no hay repulsión coulombiana, ¿cuántos átomos de \ch{Fe} cabrían en el balín de \SI{1}{\cm} de radio? Calcular en [\unit{\kg}] lo que pesaría el balín con esa cantidad de átomos.
 
-      Usando la expresión \cref{eq:energyBetaRelationship}, realiza los cálculos de la velocidad \(\beta\) en función de la energía cinética y la masa:
+      \textbf{NOTA}: Tomen el valor de \(r_{0}\) con las unidades convenientes.
+    \end{exercise}
 
-      \begin{equation}
-        \beta = \dfrac{v}{c} = f(E, m_{0}).
-      \end{equation}
-
-      Coloca la tabla de tus resultados y la gráfica en escala semilogarítmica (ya que solo un eje va de forma logarítmica) para las siguientes energías (también se incluyen las masas con las que se tienen que trabajar):
-
-      \begin{table}[!htb]
-        \centering
-        \begin{tblr}{
-          colspec=llllllllllllll, rowsep=1.2pt,
-          vlines, hline{1,3,4,5,6,7},
-          cell{1}{4}={c=11}{c}, cell{1}{1}={r=2}{l},
-          cell{1}{2}={r=2}{c}, cell{1}{3}={r=2}{c},
-          cell{3-6}{2}={c}, cell{3-6}{3}={c},
-        }
-            Partículas & uma [u] & Masas [\si[parse-numbers=false]{\MeV\per c^{2}}] & Energía [\si[parse-numbers=false]{\MeV\per c^{2}}] & 1-10\\
-              & & & \(10^{0}\) & \(10^{1}\) & \(10^{2}\) & \(10^{3}\) & \(10^{4}\) & \(10^{5}\) & \(10^{6}\) & \(10^{7}\) & \(10^{8}\) & \(10^{9}\) & \(10^{10}\) \\
-              Protón & 1.007 & 928.272 & & & & & & & & & & & \\
-              Deuterio & 2.014 & 1875.612 & & & & & & & & & & & \\
-              Helio-4 & 4.002 & 3727.838 & & & & & & & & & & & \\
-              Carbono-12 & 12.000 & 11177.928 & & & & & & & & & & & 
-        \end{tblr}
-        \caption{Tabla de las masas a usar y las energías (las van a graficar en escala logarítmica) correspondientes para los cálculos.}
-      \end{table}
+    % Problema 3
+    \begin{exercise}
+      De tus resultados anteriores, ¿cuántos balines son necesarios para compararlos con el peso de la Tierra? ¿Qué se puede concluir al respecto?
     \end{exercise}
 \end{document}
