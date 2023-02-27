@@ -146,6 +146,7 @@
 % Declaring new units
 \DeclareSIUnit\kilogram{\kilo\gram}
 \DeclareSIUnit\nucleones{\text{nucleones}}
+\DeclareSIUnit\density{\gram\per\cm\cubed}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -279,7 +280,48 @@
 
       Suponiendo que se trata de una esfera de radio \(r = \SI{6400}{\km}\); y que además la Tierra está constituida por los siguientes porcentajes de elementos: \SI{37}{\percent} de \ch{Fe}, \SI{25}{\percent} de \ch{Si}, \SI{13}{\percent} de \ch{Mg}, \SI{10}{\percent} de \ch{Ni}, \SI{8}{\percent} de \ch{Ca} y \SI{7}{\percent} de \ch{K}.
 
-      Se deben consultarlas densidades de los componentes: \(\rho = \left[\unit[per-mode=fraction]{\gram\per\cm\cubed}\right]\) que se requieren para calcular la masa total de la Tierra.
+      Se deben consultarlas densidades de los componentes: \(\rho = \left[\unit[per-mode=fraction]{\density}\right]\) que se requieren para calcular la masa total de la Tierra.
+
+      \begin{solution}
+        Las densidades de los elementos se obtuvieron de \href{https://www.physics.nist.gov/cgi-bin/Star/compos.pl}{Material composition data}:
+
+        \begin{alignat*}{3}
+          \rho_{\ch{Fe}} &= \SI{7874}{\density},\quad \rho_{\ch{Si}} &{}={}& \SI{2330}{\density},\quad \rho_{\ch{Mg}} &{}={}& \SI{1740}{\density},\\
+        \rho_{\ch{Ni}} &= \SI{8902}{\density},\quad \rho_{\ch{Ca}} &{}={}& \SI{1550}{\density},\qquad \rho_{\ch{K}} &{}={}& \SI{862}{\density}.
+        \end{alignat*}
+
+        Y como queremos calcular la masa total de la Tierra, entonces la densidad total es:
+
+        \begin{equation}
+          \rho = 0.37 \rho_{\ch{Fe}} + 0.25 \rho_{\ch{Si}} + 0.13 \rho_{\ch{Mg}} + 0.10 \rho_{\ch{Ni}} + 0.08 \rho_{\ch{Ca}} + 0.07 \rho_{\ch{K}}.
+          \label{eq:TotalDensity}
+        \end{equation}
+
+        Sustituyendo los valores de las densidades en \cref{eq:TotalDensity}
+
+        \begin{align}
+          \rho &= 0.37\left(\SI{7874}{\density}\right) + 0.25\left(\SI{2330}{\density}\right) + 0.13\left(\SI{1740}{\density}\right),\nonumber\\
+          &+ 0.10\left(\SI{8902}{\density}\right) + 0.08\left(\SI{1550}{\density}\right) + 0.07\left(\SI{862}{\density}\right),\nonumber\\
+          \Acolorboxed{\rho &= \SI{4796.62}{\density}.}\label{eq:TotalDensityN}
+        \end{align}
+
+        Y, además, la masa total de la Tierra está dada por:
+
+        \begin{align}
+          M &= \rho V,\nonumber\\
+          M &= \rho \left(\dfrac{4}{3}\pi r^{3}\right),\label{eq:Mass}
+        \end{align}
+
+        donde \(\frac{4}{3}\pi r^{3}\) es el volumen de una esfera.
+
+        Sustituyendo \cref{eq:TotalDensityN} y el radio de la Tierra \(r = \SI{6.4e8}{\cm\cubed}\) en \cref{eq:Mass}:
+
+        \begin{align*}
+          M &= \SI{4798.68}{\density} \left(\dfrac{4}{3}\pi \left(\SI{6.4e8}{\cm}\right)^{3}\right),\\
+          &= \SI{5.34886e30}{\gram},\\
+          \Acolorboxed{M &= \SI{5.34886e27}{\kg}.}
+        \end{align*}
+      \end{solution}
     \end{exercise}
 
     % Problema 2
