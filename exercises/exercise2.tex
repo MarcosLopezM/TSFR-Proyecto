@@ -1,6 +1,8 @@
-\documentclass[../main]{subfiles}
+% \PassOptionsToPackage{draft}{graphicx} %Only in subfiles
+\documentclass[./../main.tex]{subfiles}
 
 \begin{document}
+    \setcounter{exercise}{1}
     \begin{exercise}
         Por otro lado, se puede ilustrar que la materia a nivel microscópico es hueva. Hacer el siguiente cálculo:
 
@@ -9,7 +11,69 @@
         \textbf{NOTA}: Tomen el valor de \(r_{0}\) con las unidades convenientes.
 
         \begin{solution}
+            Sabemos que el volumen de una esfera está dado por:
+
+            \begin{equation}
+                V = \dfrac{4}{3}\pi r^{3}.
+                \label{eq:SphereVolume}
+            \end{equation}
             
+            A partir de \cref{eq:SphereVolume} el volumen del balín y el volumen de un núcleo de \ch{Fe}. Por un lado, tenemos que el volumen del balín es:
+
+            \begin{align}
+                V &= \dfrac{4}{3}\pi(\SI{1}{\cm})^{3},\nonumber\\
+                \Aboxed{V &= \SI{4.19}{\cm\cubed}.}
+                \label{eq:PelletVolume}
+            \end{align}
+
+            Por el otro, que el volumen de un núcleo de \ch{Fe} viene dado por:
+
+            \begin{align}
+                V_{\ch{Fe}} &= \dfrac{4}{3}\pi(r_{0}A^{\sfrac{1}{3}})^{3},\nonumber\\
+                V_{\ch{Fe}} &= \dfrac{4}{3}\pi r_{0}^{3}A,\label{eq:FeNucleusVolume}
+            \end{align}
+
+            donde \(A\) es el número de nucleones
+
+            \begin{align*}
+                A &= 0.06(54) + 0.92(56) + 0.02(57),\\
+                A &= 55.9,
+            \end{align*}
+
+            y \(r_{0} = \SI{1.2e-13}{\cm}\).
+
+            Así, \cref{eq:FeNucleusVolume} queda:
+
+            \begin{align}
+                V_{\ch{Fe}} &= \dfrac{4}{3}\pi(\SI{1.2e-13}{\cm})^{3}(55.9),\nonumber\\
+                \Acolorboxed{V_{\ch{Fe}} &= \SI{4.04617e-37}{\cm\cubed}.}\label{eq:FeNucleusVolumeN}
+            \end{align}
+
+            Ahora, para determinar cuántos átomos de \ch{Fe} caben en el balín, calculamos el cociente de los volúmenes, \cref{eq:PelletVolume} entre \cref{eq:FeNucleusVolumeN}:
+
+            \begin{align}
+                n &= \dfrac{V}{V_{\ch{Fe}}} = \dfrac{\SI{4.19}{\cm\cubed}}{\SI{4.04617e-37}{\cm\cubed}},\nonumber\\
+                \then \Acolorboxed{n &= \SI{1.03525e37}{\atoms}.}
+                \label{eq:NumberFeAtoms}
+            \end{align}
+
+            Finalmente para calcular la masa del balín, multiplicamos el número de átomos \cref{eq:NumberFeAtoms} por la masa de un átomo de \ch{Fe}:
+
+            \begin{align}
+                m &= n\cdot m_{\ch{Fe}}\cdot \SI{1.660539e-27}{\kg},\nonumber\\
+                &= n\left[0.06(\num{53.939608}) + 0.96(\num{55.934936}) + 0.02(\num{56.935392})\right](\SI{1.660539e-27}{\kg}),\nonumber\\
+                &= \num{1.03525e37}(\num{55.8352})(\SI{1.660539e-27}{\kg}),\nonumber\\
+                \Acolorboxed{m &= \SI{9.59847e11}{\kg}.}\label{eq:PelletMass}
+            \end{align}
+
+            Sin embargo, notamos que la masa del balín es casi la mitad de la masa de la Tierra, ya que si calculamos la masa del balín a partir de la densidad del \ch{Fe}:
+
+            \begin{align}
+                m_{\ch{Fe}} &= (\SI{7.87400}{\density})(\SI{4.19}{\cm\cubed}),\nonumber\\
+                \Aboxed{m_{\ch{Fe}} &= \SI{0.32}{\kg}.}\label{eq:PelletDensityMass}
+            \end{align}
+
+            Así, de \cref{eq:PelletMass,eq:PelletDensityMass}, concluimos que la mayor parte de la materia está compuesta por espacio vacío, en parte debida a la repulsión coulombiana.
         \end{solution}
     \end{exercise}
 \end{document}
