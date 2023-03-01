@@ -1,4 +1,5 @@
-\documentclass[../main]{subfiles}
+% \PassOptionsToPackage{draft}{graphicx}
+\documentclass[./../main.tex]{subfiles}
 
 \begin{document}
     \begin{exercise}
@@ -42,11 +43,11 @@
 
         Sustituyendo \cref{eq:TotalDensityN} y el radio de la Tierra, \(r = \SI{6.4e8}{\cm}\), en \cref{eq:Mass}:
 
-        \begin{align*}
-            M &= \SI{4.79662}{\density} \left(\dfrac{4}{3}\pi \left(\SI{6.4e8}{\cm}\right)^{3}\right),\\
-            &= \SI{5.26701e27}{\gram},\\
-            \Acolorboxed{M &\approx \SI{5.26701e24}{\kg}.}
-        \end{align*}
+        \begin{align}
+            M &= \SI{4.79662}{\density} \left(\dfrac{4}{3}\pi \left(\SI{6.4e8}{\cm}\right)^{3}\right),\nonumber\\
+            &= \SI{5.26701e27}{\gram},\nonumber\\
+            \Acolorboxed{M &\approx \SI{5.26701e24}{\kg}.}\label{eq:EarthMass}
+        \end{align}
         \end{solution}
     \end{exercise}
 \end{document}
