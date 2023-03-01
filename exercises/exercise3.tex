@@ -1,7 +1,24 @@
-\documentclass[../main]{subfiles}
+% \PassOptionsToPackage{draft}{graphicx}
+\documentclass[./../main.tex]{subfiles}
 
 \begin{document}
     \begin{exercise}
         De tus resultados anteriores, ¿cuántos balines son necesarios para compararlos con el peso de la Tierra? ¿Qué se puede concluir al respecto?
+
+        \begin{solution}
+            Para obtener el número de balines necesarios para compararlos con el peso de la Tierra, calculamos el cociente de \cref{eq:EarthMass,eq:PelletDensityMass},
+
+            \begin{empheq}[box = \color{pinkwave}\fbox]{equation*}
+                n = \num{1.64594e28}.
+            \end{empheq}
+
+            Mientras que si hubiesemos considerado el valor obtenido en \cref{eq:PelletMass}, el número de balínes sería:
+
+            \begin{empheq}[box = \color{pinkwave}\fbox]{equation*}
+                n = \num{5.270508e12}.
+            \end{empheq}
+
+            De estos valores podemos concluir que si despreciamos la repulsión coulombiana, el equivalente a la masa de la Tierra sería 16 ordenes de magnitud menor que si se considerara. Es decir, una vez más comprobamos que la materia está constituida en su mayoría por espacio vacío.
+        \end{solution}
     \end{exercise}
 \end{document}
