@@ -3,22 +3,19 @@
 
 \begin{document}
     \begin{exercise}
-        De tus resultados anteriores, ¿cuántos balines son necesarios para compararlos con el peso de la Tierra? ¿Qué se puede concluir al respecto?
+        Calcular el potencial de la barrera coulombiana \(V_{c}\) para las siguientes reacciones nucleares:
 
-        \begin{solution}
-            Para obtener el número de balines necesarios para compararlos con el peso de la Tierra, calculamos el cociente de \cref{eq:EarthMass,eq:PelletDensityMass},
+        \begin{itemize}
+            \item \ch{^{12}C(p,p)^{12}}, \ch{^{12}C(d,p) ^{13}C}, \ch{^{12}C(d, ^{3}He) ^{11}B}, \ch{^{12}C(d, ^{4}He)^{10}B}
+            \item \ch{^{27}Al(p,p) ^{27}Al}, \ch{^{27}Al(d,p) ^{28}Al}, \ch{^{27}Al(d, ^{3}He) ^{26}Mg}, \ch{^{27}Al(d, ^{4}He) ^{25}Mg}
+            \item \ch{^{46}Fe(p,p) ^{46}Fe}, \ch{^{46}Fe(d,p) ^{47}Fe}, \ch{^{46}Fe(d, ^{3}He) ^{45}Mn}, \ch{^{46}Fe(d, ^{4}He)^{44}Mn}
+            \item \ch{^{235}U(p,p) ^{235}U}
+        \end{itemize}
 
-            \begin{empheq}[box = \color{pinkwave}\fbox]{equation*}
-                n = \num{1.64594e28}.
-            \end{empheq}
+        \begin{equation*}
+            V_{c} = \dfrac{Z_{1}Z_{2}\e^{2}}{(R_{t} + r_{p})},
+        \end{equation*}
 
-            Mientras que si hubiesemos considerado el valor obtenido en \cref{eq:PelletMass}, el número de balínes sería:
-
-            \begin{empheq}[box = \color{pinkwave}\fbox]{equation*}
-                n = \num{5.270508e12}.
-            \end{empheq}
-
-            De estos valores podemos concluir que si despreciamos la repulsión coulombiana, el equivalente a la masa de la Tierra sería 16 ordenes de magnitud menor que si se considerara. Es decir, una vez más comprobamos que la materia está constituida en su mayoría por espacio vacío.
-        \end{solution}
+        donde \(Z_{1}\) pertenece al blanco (\emph{target}), \(Z_{2}\) pertenece al proyectil, \(\e\) es la carga del electrón, \(R_{t}\) es el radio del blanco (\emph{target}) y \(r_{p}\) es el radio del proyectil.
     \end{exercise}
 \end{document}

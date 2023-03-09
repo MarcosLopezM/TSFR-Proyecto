@@ -4,52 +4,9 @@
 \graphicspath{{img/}}
 
 \begin{document}
+    Un caso de reacción nuclear es cuando las partículas antes y después de una colisión son las mismas. De IBANDL se bajó la reacción \ch{^{12}C(p, p) ^{12} C}, medida a \SI{170}{\degree}. La primera columna del archivo anexo es la energía de bombardeo en unidades de \unit{\keV}, la segunda columna es la sección de dispersión elástica en unidades de \unit{\mb}.
+
     \begin{exercise}
-        Calcular la masas total del planeta Tierra con los siguientes datos:
-
-        Suponiendo que se trata de una esfera de radio \(r = \SI{6400}{\km}\); y que además la Tierra está constituida por los siguientes porcentajes de elementos: \SI{37}{\percent} de \ch{Fe}, \SI{25}{\percent} de \ch{Si}, \SI{13}{\percent} de \ch{Mg}, \SI{10}{\percent} de \ch{Ni}, \SI{8}{\percent} de \ch{Ca} y \SI{7}{\percent} de \ch{K}.
-
-        Se deben consultarlas densidades de los componentes: \(\rho = \left[\unit[per-mode=fraction]{\density}\right]\) que se requieren para calcular la masa total de la Tierra.
-
-        \begin{solution}
-        Las densidades de los elementos se obtuvieron de \href{https://physics.nist.gov/cgi-bin/Star/compos.pl}{Material composition data}:
-
-        \begin{alignat*}{3}
-            \rho_{\ch{Fe}} &= \SI{7.87400}{\density},\quad \rho_{\ch{Si}} &{}={}& \SI{2.33000}{\density},\quad \rho_{\ch{Mg}} &{}={}& \SI{1.74000}{\density},\\
-        \rho_{\ch{Ni}} &= \SI{8.90200}{\density},\quad \rho_{\ch{Ca}} &{}={}& \SI{1.55000}{\density},\qquad \rho_{\ch{K}} &{}={}& \SI{0.86200}{\density}.
-        \end{alignat*}
-
-        Y como queremos calcular la masa total de la Tierra, entonces la densidad total es:
-
-        \begin{equation}
-            \rho = 0.37 \rho_{\ch{Fe}} + 0.25 \rho_{\ch{Si}} + 0.13 \rho_{\ch{Mg}} + 0.10 \rho_{\ch{Ni}} + 0.08 \rho_{\ch{Ca}} + 0.07 \rho_{\ch{K}}.
-            \label{eq:TotalDensity}
-        \end{equation}
-
-        Sustituyendo los valores de las densidades en \cref{eq:TotalDensity}
-
-        \begin{align}
-            \rho &= 0.37\left(\SI{7.87400}{\density}\right) + 0.25\left(\SI{2.33000}{\density}\right) + 0.13\left(\SI{1.74000}{\density}\right),\nonumber\\
-            &+ 0.10\left(\SI{8.90200}{\density}\right) + 0.08\left(\SI{1.55000}{\density}\right) + 0.07\left(\SI{0.86200}{\density}\right),\nonumber\\
-            \Acolorboxed{\rho &= \SI{4.79662}{\density}.}\label{eq:TotalDensityN}
-        \end{align}
-
-        Y, además, la masa total de la Tierra está dada por:
-
-        \begin{align}
-            M &= \rho V,\nonumber\\
-            M &= \rho \left(\dfrac{4}{3}\pi r^{3}\right),\label{eq:Mass}
-        \end{align}
-
-        donde \(\frac{4}{3}\pi r^{3}\) es el volumen de una esfera.
-
-        Sustituyendo \cref{eq:TotalDensityN} y el radio de la Tierra, \(r = \SI{6.4e8}{\cm}\), en \cref{eq:Mass}:
-
-        \begin{align}
-            M &= \SI{4.79662}{\density} \left(\dfrac{4}{3}\pi \left(\SI{6.4e8}{\cm}\right)^{3}\right),\nonumber\\
-            &= \SI{5.26701e27}{\gram},\nonumber\\
-            \Acolorboxed{M &\approx \SI{5.26701e24}{\kg}.}\label{eq:EarthMass}
-        \end{align}
-        \end{solution}
+        Calcular la barrera coulombiana \(V_{c}\) para esta reacción.
     \end{exercise}
 \end{document}

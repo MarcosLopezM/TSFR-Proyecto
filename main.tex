@@ -25,7 +25,7 @@
 \usepackage[hyperref]{ntheorem}
 % \usepackage{phfqit} % Bra-ket notation
 % \usepackage{physics}
-\usepackage[final]{showlabels}
+\usepackage[inline]{showlabels}
 \usepackage{simples-matrices}
 \usepackage{siunitx}
 \usepackage{soul}
@@ -127,7 +127,7 @@
     urlbordercolor={[rgb]{0.8,0,0.8}},%
     runbordercolor={[rgb]{0.8,0,0.8}},%
     menubordercolor={[rgb]{0,0.2,0.6}},% 
-    pdftitle={Tarea 2},%
+    pdftitle={Tarea 3},%
     pdfauthor={López Merino Marcos},%
     pdfsubject={Introducción a la Física Nuclear},%
     pdfkeywords={Facultad de Ciencias, UNAM, Introducción a la Física Nuclear, Experimental},%
@@ -150,6 +150,7 @@
 \DeclareSIUnit\density{\gram\per\cm\cubed}
 \DeclareSIUnit\fm{\femto\m} % Fermi
 \DeclareSIUnit\atoms{\text{átomos}}
+\DeclareSIUnit\mb{mb} % Millibarn
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Geometría del documento
@@ -165,7 +166,7 @@
 %%%%%%%%%%%%%%%%%%Nuevos comandos%%%%%%%%%%%%%%%%%%
 \newcommand*{\group}{8316}
 \newcommand*{\classname}{Introducción a la Física Nuclear}
-\newcommand*{\homeworknumber}{Tarea 2}
+\newcommand*{\homeworknumber}{Tarea 3}
 \newcommand*{\name}{Marcos López Merino}
 
 % unit vector i
@@ -275,6 +276,8 @@
 \begin{document}
     \maketitle
     \thispagestyle{fancy}
+
+    Los primeros experimentos realizados con los aceleradores de partículas se enfocaran en medir las secciones eficaces de reacciones nucleares y muchos de estos resultados están disponibles en una base de datos: IBANDL, en la cual se puede tener acceso con un vínculo en el programa SIMNRA. 
 
     % Problema 1
     \subfile{exercises/exercise1.tex}
