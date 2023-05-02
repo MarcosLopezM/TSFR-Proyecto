@@ -4,9 +4,25 @@
 \graphicspath{{img/}}
 
 \begin{document}
-    Un caso de reacción nuclear es cuando las partículas antes y después de una colisión son las mismas. De IBANDL se bajó la reacción \ch{^{12}C(p, p) ^{12} C}, medida a \SI{170}{\degree}. La primera columna del archivo anexo es la energía de bombardeo en unidades de \unit{\keV}, la segunda columna es la sección de dispersión elástica en unidades de \unit{\mb}.
-
     \begin{exercise}
-        Calcular la barrera coulombiana \(V_{c}\) para esta reacción.
+        Para la reacción de \ch{^{48} Ca} a \SI{215}{\MeV} (energía cinética en el sistema de laboratorio) con \ch{^{208} Pb} ángulo de \SI{20}{\degree}.
+
+        \begin{enumerate}[label = \alph*)]
+            \item Calcular la altura de la barrera de Coulomb. Expresar el resultado en \si{\MeV}.
+            \item Calcular el parámetro de Sommerfield (\(\eta\)) y diga el tipo de dispersión elástica que ocurre.
+            \item Calcular la sección eficaz diferencial de Rutherford. Exprese su resultado en milibarn (\si{\mb}).
+        \end{enumerate}
+
+        \begin{equation}
+            \left[\odv{\sigma_{R}}{\Omega}\right]_{\theta_{c}} = \left[\dfrac{Z_{p}Z_{t}\alpha\hbar c}{4E_{c}}\right]^{2} \dfrac{1}{\sin^{4}(\theta_{c} / 2)}.
+        \end{equation}
+
+        Parámetro de Sommerfeld en el SI:
+
+        \begin{align*}
+            \eta &= \alpha Z_{p}Z_{t} \sqrt{\dfrac{\mu c^{2}}{2E}},\\
+            \text{masa reducida} &\colon \mu \left[\si{\MeV}/c^{2}\right],\nonumber\\
+            (\SI{1}{\u}) &= \SI{931.5}{\MeV} / c^{2}.
+        \end{align*}
     \end{exercise}
 \end{document}
