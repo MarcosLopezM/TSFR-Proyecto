@@ -5,28 +5,41 @@
 
 \begin{document}
     \begin{exercise}
-        Para la reacción de \ch{^{48} Ca} a \SI{215}{\MeV} (energía cinética en el sistema de laboratorio) con \ch{^{208} Pb} ángulo de \SI{20}{\degree}.
+        Para la reacción de \ch{^{48} Ca} a \qty{215}{\MeV} (energía cinética en el sistema de laboratorio) con \ch{^{208} Pb} ángulo de \qty{20}{\degree}.
 
         \begin{enumerate}[label = \alph*)]
             \item Calcular la altura de la barrera de Coulomb. Expresar el resultado en \si{\MeV}.
+            
+            \begin{solution}
+                Sabemos que la barrera de Coulomb está dada por
+
+                \begin{equation}
+                    V_{C} = \dfrac{Z_{p}Z_{t}\e^{2}}{R_{t} + r_{p}},
+                    \label{eq:CoulombBarrier}
+                \end{equation}
+
+                donde \(Z_{p}\) pertenece al blanco, \(Z_{2}\) al proyectil, \(\e\) es la carga del electrón, \(R_{t}\) es el radio del blanco y \(r_{p}\) es el radio del proyectil.
+
+                Para este caso tenemos que \(Z_{p} = 20\) para el \ch{^{48} Ca} y \(Z_{t} = 82\) para el \ch{^{208} Pb}, cuyos respectivos radios se obtienen a partir de la expresión \(R = \qty{1.2}{\fm} \cdot A^{1/3}\). Por lo cual,
+
+                \begin{empheq}[box = \fbox]{align*}
+                    R_{t} &= \qty{7.11}{\fm},\\
+                    r_{p} &= \qty{4.36}{\fm}.
+                \end{empheq}
+
+                Y, además, que \(\e^{2} = \qty{1.44}{\MeV \fm}\).
+
+                Sustituyendo estos valores en \cref{eq:CoulombBarrier} obtenemos que la altura de la barrera de Coulomb es de
+
+                \begin{align*}
+                    V_{C} &= \dfrac{20 \cdot 82 \cdot \qty{1.44}{\MeV \fm}}{\qty{7.11}{\fm} + \qty{4.36}{\fm}}\\
+                    \Acolorboxed{V_{C} &= \qty{205.89}{\MeV}.}
+                \end{align*}
+            \end{solution}
+            
             \item Calcular el parámetro de Sommerfield (\(\eta\)) y diga el tipo de dispersión elástica que ocurre.
+            
             \item Calcular la sección eficaz diferencial de Rutherford. Exprese su resultado en milibarn (\si{\mb}).
         \end{enumerate}
-
-        \begin{equation}
-            \left[\odv{\sigma_{R}}{\Omega}\right]_{\theta_{c}} = \left[\dfrac{Z_{p}Z_{t}\alpha\hbar c}{4E_{c}}\right]^{2} \dfrac{1}{\sin^{4}(\theta_{c} / 2)}.
-        \end{equation}
-
-        \begin{center}
-            Parámetro de Sommerfeld en el SI:
-        \end{center}
-
-        \begin{align*}
-            \eta &= \alpha Z_{p}Z_{t} \sqrt{\dfrac{\mu c^{2}}{2E}},\\
-            \text{masa reducida} &\colon \mu \left[\si{\MeV}/c^{2}\right],\nonumber\\
-            (\SI{1}{\u}) &= \SI{931.5}{\MeV} / c^{2}.
-        \end{align*}
-
-        Hint: Utilice la energía cinética dada en el sistema de referencia del laboratorio, la misma que en el sistema de referencia del centro de masa, ya que su variación es mínima.
     \end{exercise}
 \end{document}
