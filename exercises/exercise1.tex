@@ -97,7 +97,33 @@
             \item Calcular la sección eficaz diferencial de Rutherford. Exprese su resultado en milibarn (\si{\mb}).
             
             \begin{solution}
-                
+                La sección eficaz diferencial de Rutherford está definida como
+
+                \begin{equation*}
+                    \left[\odv{\sigma_{R}}{\Omega}\right]_{\theta_{C}} = \left(\dfrac{Z_{p}Z_{t}\alpha\hbar c}{4E_{C}}\right)^{2} \dfrac{1}{\sin^{4}(\theta_{C}/2)},
+                \end{equation*}
+
+                con \(\hbar c = \qty{197.33}{\MeV\fm}\).
+
+                Así,
+
+                \begin{align*}
+                    \left[\odv{\sigma_{R}}{\Omega}\right]_{\theta_{C}} &= 122.79 \cdot \qty{0.842382}{\fm\squared} \cdot \qty{73.0791}{\per\steradian},\\
+                    \Aboxed{\left[\odv{\sigma_{R}}{\Omega}\right]_{\theta_{C}} &= \qty{7559.02}{\fm\squared\per\steradian}.}
+                \end{align*}
+
+                Sin embargo queremos el resultado expresado en \unit{\mb}, por lo que el factor de conversión es
+
+                \begin{equation*}
+                    \qty{10}{\mb\per\steradian} = \qty{1}{\fm\squared\per\steradian}.
+                \end{equation*}
+
+                Por lo tanto, 
+
+                \begin{align*}
+                    \left[\odv{\sigma_{R}}{\Omega}\right]_{\theta_{C}} &= 10 \cdot \qty{7559.02}{\mb\per\steradian},\\
+                    \Acolorboxed{\left[\odv{\sigma_{R}}{\Omega}\right]_{\theta_{C}} &= \qty{75590.2}{\mb\per\steradian}.}
+                \end{align*}
             \end{solution}
         \end{enumerate}
     \end{exercise}
