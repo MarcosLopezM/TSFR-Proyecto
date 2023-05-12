@@ -37,7 +37,59 @@
                 \end{align*}
             \end{solution}
             
-            \item Calcular el parámetro de Sommerfield (\(\eta\)) y diga el tipo de dispersión elástica que ocurre.
+            \pagebreak
+            \item Calcular el parámetro de Sommerfeld (\(\eta\)) y diga el tipo de dispersión elástica que ocurre.
+            
+            \begin{solution}
+                El parámetro de Sommerfeld \(\eta\) es
+                
+                \begin{equation}
+                    \eta = \alpha Z_{p}Z_{t}\sqrt{\dfrac{\mu c^{2}}{2E}}.
+                    \label{eq:SommerfeldParameter}
+                \end{equation}
+
+                Primero calculamos el valor de la masa reducida,\idest
+
+                \begin{equation}
+                    \mu = \dfrac{m_{p}m_{t}}{m_{p} + m_{t}}.
+                    \label{eq:ReducedMass}
+                \end{equation}
+
+                Las masas del \ch{^{48} Ca} y \ch{^{208} Pb}, respectivamente, son:
+
+                \begin{align*}
+                    m_{p} &= \qty{47.952533}{\u},\\
+                    m_{t} &= \qty{207.976627}{\u}.
+                \end{align*}
+
+                Convertimos los valores de las masas a \([\unit{\MeV}/c^{2}]\) sabiendo que el factor de conversión es
+
+                \begin{equation*}
+                    \qty{1}{\u} = \qty{931.5}{\MeV\per c\squared}.
+                \end{equation*}
+
+                Así,
+
+                \begin{align*}
+                    \then m_{p} &= (\qty{47.952533}{\u})(\qty{931.5}{\MeV\per c\squared}),\\
+                    \Acolorboxed{m_{p} &= \qty{44667.784489}{\MeV\per c\squared}.}\\
+                    \then m_{t} &= (\qty{207.976627}{\u})(\qty{931.5}{\MeV\per c\squared}),\\
+                    \Acolorboxed{m_{t} &= \qty{193730.228051}{\MeV\per c\squared}.}
+                \end{align*}
+
+                Sustituyendo estos valores en \cref{eq:ReducedMass} tenemos que el valor de la masa reducida es de
+
+                \begin{empheq}[box = \fbox]{equation}
+                    \mu = \qty{36298.541181}{\MeV\per c\squared}.
+                    \label{eq:ReducedMassN}
+                \end{empheq}
+
+                De \cref{eq:ReducedMassN} y los demás valores correspondientes, el parámetro de Sommerfeld \cref{eq:SommerfeldParameter} tiene un valor de
+
+                \begin{empheq}[box = \color{pinkwave}\fbox]{equation}
+                    \eta = \num{407.242}.
+                \end{empheq}
+            \end{solution}
             
             \item Calcular la sección eficaz diferencial de Rutherford. Exprese su resultado en milibarn (\si{\mb}).
         \end{enumerate}
