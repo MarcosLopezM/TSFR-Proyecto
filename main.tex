@@ -127,10 +127,10 @@
     urlbordercolor={[rgb]{0.8,0,0.8}},%
     runbordercolor={[rgb]{0.8,0,0.8}},%
     menubordercolor={[rgb]{0,0.2,0.6}},% 
-    pdftitle={Tarea 3},%
+    pdftitle={Tarea 1},%
     pdfauthor={López Merino Marcos},%
-    pdfsubject={Introducción a la Física Nuclear},%
-    pdfkeywords={Facultad de Ciencias, UNAM, Introducción a la Física Nuclear, Teoría},%
+    pdfsubject={Física Nuclear y Subnuclear},%
+    pdfkeywords={Facultad de Ciencias, UNAM, Física Nuclear y Subnuclear, Diagramas de Feynman, Sección eficaz},%
     unicode = true%
 }
 
@@ -150,6 +150,7 @@
 \DeclareSIUnit\density{\gram\per\cm\cubed}
 \DeclareSIUnit\fm{\femto\m} % Fermi
 \DeclareSIUnit\atoms{\text{átomos}}
+\DeclareSIUnit\barn{barn} % Barn  
 \DeclareSIUnit\mb{mb} % Millibarn
 \DeclareSIUnit\u{u} % Atomic mass unit
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -165,9 +166,9 @@
 }
 
 %%%%%%%%%%%%%%%%%%Nuevos comandos%%%%%%%%%%%%%%%%%%
-\newcommand*{\group}{8316}
-\newcommand*{\classname}{Introducción a la Física Nuclear}
-\newcommand*{\homeworknumber}{Tarea 3}
+\newcommand*{\group}{8426}
+\newcommand*{\classname}{Física Nuclear y Subnuclear}
+\newcommand*{\homeworknumber}{Tarea 1}
 \newcommand*{\name}{Marcos López Merino}
 
 % unit vector i
@@ -205,7 +206,6 @@
 \renewcommand*{\curl}{\nabla \mul}
 \newcommand*{\laplacian}{\nabla^{2}}
 \newcommand*{\qq}{\quad\quad}
-\DeclareDifferential{\cdif}{\grad}[style-notation=single]
 \newcommand*{\dotprod}[2]{#1 \mathbin{\cdot} #2\xspace}
 \newcommand*{\crossprod}[2]{#1 \mathbin{\mul} #2\xspace}
 \newcommand*{\basevect}[1]{\uvec{e}_{#1}\xspace}
@@ -261,7 +261,7 @@
 %%%%%%%%%%%%%%%%%%Header and footer%%%%%%%%%%%%%%%%%%
 \setlength{\headheight}{15.2pt}
 \pagestyle{fancy}
-\lhead{Grupo \group, Sem. 2023-1}
+\lhead{Grupo \group, Sem. 2024-1}
 \chead{\classname}
 \rhead{\name}
 \lfoot{\includegraphics[scale = 0.2, valign = c]{LogoFCUNAMcolor.pdf}}
@@ -286,4 +286,10 @@
 
     % Problema 3
     \subfileinclude{exercises/exercise3.tex}
+
+    % Problema 4
+    \subfileinclude{exercises/exercise4.tex}
+
+    % Problema 5
+    \subfileinclude{exercises/exercise5.tex}
 \end{document}
