@@ -35,6 +35,7 @@
 \usepackage{tabularray}
 \usepackage{tasks}
 \usepackage{tensor}
+\usepackage[compat=1.1.0]{tikz-feynman}
 \usepackage{xcolor}
 \usepackage{xfrac}
 \usepackage{xparse}
@@ -54,7 +55,7 @@
 \pagecolor{base3}
 \graphicspath{{img/}}
 \setlength{\parindent}{2em} % Sangría
-\setlength{\parskip}{0.5em} % Espacio entre párrafos
+\setlength{\parskip}{0.5em} % Espacio entre párrafo
 \linespread{1.1} % line spacing
 \setlength{\jot}{10pt} % Space between lines in multiline eqs
 % \crefname{equation}{ec.}{ecs.} % Equation's cross-reference name
@@ -153,6 +154,7 @@
 \DeclareSIUnit\barn{barn} % Barn  
 \DeclareSIUnit\mb{mb} % Millibarn
 \DeclareSIUnit\u{u} % Atomic mass unit
+\DeclareSIUnit\clightsq{\text{\ensuremath{c^{2}}}} % Speed of light squared
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Geometría del documento

@@ -6,5 +6,30 @@
 \begin{document}
     \begin{exercise}
         Calcula el factor relativista \(\gamma\) de un protón de \qty{10}{\GeV} de energía total y de un electrón de \qty{1}{\GeV}.
+
+        \begin{solution}
+            Recordemos que el factor relativista \(\gamma\) está dado por:
+
+            \begin{equation}
+                \gamma = \dfrac{E}{m c^{2}}.
+                \label{eq:relativistic-factor}
+            \end{equation}
+
+            Además, que las masas del electrón (\(m_{\e}\)) y protón (\(m_{p}\)) son \qty{0.511}{\MeV\per\clightsq} y \qty{938}{\MeV\per\clightsq}, respectivamente. Por lo tanto, el factor relativista del protón es:
+
+            \begin{align*}
+                \gamma_{p} &= \dfrac{\qty{10e9}{\eV}}{(\qty{938e6}{\eV\per\clightsq}) \cdot c^{2}},\\
+                &= \dfrac{\qty{10e9}{\eV}}{\qty{938e6}{\eV}},\\
+                \Acolorboxed{\gamma_{p} &= \qty{10.661}{\eV}.}
+            \end{align*}
+
+            Y para el electrón,
+
+            \begin{align*}
+                \gamma_{\e} &= \dfrac{\qty{1e9}{\eV}}{(\qty{0.511e6}{\eV\per\clightsq}) \cdot c^{2}},\\
+                &= \dfrac{\qty{1e9}{\eV}}{\qty{0.511e6}{\eV}},\\
+                \Acolorboxed{\gamma_{\e} &= \qty{1956.95}{\eV}.}
+            \end{align*}
+        \end{solution}
     \end{exercise}
 \end{document}
