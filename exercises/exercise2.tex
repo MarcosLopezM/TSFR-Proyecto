@@ -4,5 +4,38 @@
 \begin{document}
     \begin{exercise}
         Calcula el camino libre medio de ese mismo protón que cruza un bloque de plomo, con sección eficaz de \qty{1}{\barn}.
+
+        \begin{solution}
+            Sabemos que el camino libre medio se obtiene a partir de
+
+            \begin{equation}
+                \lambda = \dfrac{1}{n \sigma},
+                \label{eq:mean-free-path}
+            \end{equation}
+
+            donde \(\sigma\) es la sección eficaz y \(n = \rho N_{A} / A\) es la densidad volumétrica de blancos.
+
+            Para poder obtener el valor de \(n\), debemos conocer \(\rho\), \(A\) y \(N_{A}\). 
+
+            \begin{align*}
+                \rho &= \qty{1.1350}{\g\per\cm\cubed}, \\
+                A &= \qty[per-mode=symbol]{207.2}{\g\per\mol},\\
+                N_{A} &= \qty[per-mode=symbol]{6.022e23}{\per\mol}.
+            \end{align*}
+
+            Así, la densidad de blancos \(n\) es:
+
+            \begin{align}
+                n &= \dfrac{\qty{1.1350}{\g\per\cm\cubed}(\qty{6.022e23}{mol^{-1}})}{\qty{207.2}{\g\per\mol}} \nonumber\\
+                \Aboxed{n &= \qty{3.2987e21}{\cm^{-3}}.}\label{eq:volumetric-density-of-targets}
+            \end{align}
+
+            Sustituyendo \cref{eq:volumetric-density-of-targets} y \(\sigma = \qty{1}{\barn} = \qty{1e-24}{\cm\squared}\) en \cref{eq:mean-free-path}, obtenemos:
+
+            \begin{align*}
+                \lambda &= \dfrac{1}{(\qty{3.2987e21}{\cm^{-3}})(\qty{1e-24}{\cm\squared})}\\
+                \Acolorboxed{\lambda &= \qty{303.147}{\cm}.}
+            \end{align*}
+        \end{solution}
     \end{exercise}
 \end{document}
