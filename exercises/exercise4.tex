@@ -10,5 +10,28 @@
         \end{equation*}
 
         ¿Qué tipo de interacción es? Dibuja el diagrama de Feynman si la interacción es posible.
+
+        \begin{solution}
+            Puesto que estamos tratando con una interacción, no verificamos la conservación de la energía, ya que la colisión al no ser espontánea se les debió dar una energía para que chocaran en un principio.
+
+            El número bariónico es cero, ya que las partículas presentes en la interacción son leptones; por lo que únicamente necesitamos verificar si la carga y el número leptónico se conservan.
+
+            Rápidamente nos podemos dar cuenta que tanto la carga como el número leptónico se conservan, pues la colisión es únicamente entre electrones y de ambos lados tenemos el mismo número de electrones. Por lo tanto, \setulcolor{pinkwave}\ul{la interacción es posible}.
+
+            ¿Qué tipo de interacción es? La interacción es meramente \setulcolor{pinkwave}\ul{electromagnética}.
+
+            Finalmente tenemos el diagrama de Feynman de la interacción:
+
+            \begin{figure}[htb]
+                \centering
+                \feynmandiagram [horizontal=a to b] {
+                    i1 [particle=\(\e^{-}\)] -- [fermion] a -- [anti fermion] i2 [particle=\(\e^{-}\)],
+                    a -- [photon, edge label=\(\gamma\)] b,
+                    f1 [particle=\(\e^{-}\)] -- [anti fermion] b -- [fermion] f2 [particle=\(\e^{-}\)],
+                };
+                \caption{Diagrama de Feynamn de la colisión de dos electrones.}
+                \label{fig:electrons-collision}
+            \end{figure}
+        \end{solution}
     \end{exercise}
 \end{document}
