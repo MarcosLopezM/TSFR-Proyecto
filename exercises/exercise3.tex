@@ -2,63 +2,20 @@
 \graphicspath{{img/}}
 
 \begin{document}
-    \begin{exercise}
-        ¿Es posible el siguiente decaimiento?
+    \color{blue}
+    \begin{exercise}[Extra: Incertidumbre de \texorpdfstring{\(\observable{J}[x]\)}{Algo bien locote} y \texorpdfstring{\(\observable{J}[y]\)}{Algo bien locote también} (valor: +1pt)]
+        Sea \(\observable{\hvect{J}}\) el operador general de momento angular con componentes \(\observable{J}[x]\), \(\observable{J}[y]\) y \(\observable{J}[z]\). En clase aprendimos que estas componentes no conmutan entre sí y por lo tanto deben satisfacer alguna relación de incertidumbre. Considerando la base de autoestados \(\ket{j, m}\) de los operadores \(\observable{J}[0][2]\) y \(\observable{J}[z]\), encuentra la relación de incertidumbre \(\change{\observable{J}[x]}\change{\observable{J}[y]}\).
+
+        Recuerda que la definición de la desviación estándar de un operador \(\observable{\mathcal{O}}\) es
 
         \begin{equation*}
-            \ch{\tau- -> \nu_{\tau} + \mu- + {$\overline{\nu}$}_{\mu}}
+            \change{\observable{\mathcal{O}}} = \sqrt{\avg{\observable{\mathcal{O}}[][2]} - \avg{\observable{\mathcal{O}}}^{2}}.
         \end{equation*}
 
-        ¿Qué tipo de interacción es: electromagnética, nuclear fuerte o débil? Dibuja el diagrama de Feynman asociado si el decaimiento es posible.
+        \textbf{Sugerencia:} Utiliza los operadores de ascenso y descenso, \(\observable{J}[+] = \observable{J}[x] + i\observable{J}[y]\) y \(\observable{J}[-] = \observable{J}[x] - i\observable{J}[y]\), recordando que su acción sobre los estados \(\ket{j,m}\) es:
 
-        \begin{solution}
-            Para determinar si el decaimiento es posible debemos verificar que se conserve la energía, la carga eléctrica, el número bariónico y el número leptónico.
-
-            Escribimos nuevamente el decaimiento para verificar si la energía se conserva. Así,
-
-            \begin{align*}
-                \ch{\tau- &-> \nu_{\tau} + \mu- + \(\overline{\nu}\)_{\mu}},\\
-                \ch{\(\qty{1776.86}{\MeV}\) &-> 0 + \(\qty{105.6}{\MeV}\) + 0}.
-            \end{align*}
-
-            Del lado izquierdo tenemos que hay mucha más energía en reposo que del lado derecho. Por lo tanto, \setulcolor{customBlue}\ul{la energía se conserva}.
-
-            Pasamos a verificar si la carga se conserva. Así,
-
-            \begin{align*}
-                \ch{\tau- &-> \nu_{\tau} + \mu- + \(\overline{\nu}\)_{\mu}},\\
-                \ch{\(-1\e\) &-> \(0\e\) + \(-1\e\) + \(0\e\)}.
-            \end{align*}
-
-            Como se puede ver, de un lado tenemos que la carga es \(-1\e\) y del otro lado lo mismo, \(-1\e\): \setulcolor{customBlue}\ul{la carga se conserva}.
-
-            Ahora necesitamos verificar el número bariónico. Sin embargo, todas las partículas que están presentes en el decaimiento son leptones, por lo que el número bariónico es cero. Por lo tanto, \setulcolor{customBlue}\ul{el número bariónico se conserva}.
-
-            Para terminar, debemos verificar si el número leptónico se conserva. Recordemos que existen tres familias de leptones: \(\e\), \(\mu\) y \(\tau\) por lo que el número leptónico de cada una debe conservarse en ambos lados.
-
-            \begin{align*}
-                \ch{\tau- &-> \nu_{\tau} + \mu- + \(\overline{\nu}\)_{\mu}},\\
-                \ch{\(1_{\tau}\) &-> \(1_{\tau}\) + \(1_{\mu}\) + \(-1_{\mu}\)},\\
-                \ch{\(1_{\tau}\) &-> \(1_{\tau}\)}.\\
-            \end{align*}
-
-            Es decir, el número leptónico de la familia \(\tau\) se queda como \(1\) en ambos lados y, el número leptónico para la familia \(\mu\) se hace cero del lado derecho. Por lo tanto, \setulcolor{customBlue}\ul{el número leptónico se conserva} y, por ende, \setulcolor{pinkwave}\ul{el decaimiento es posible}. 
-
-            ¿Qué tipo de interacción es? Puesto que únicamente participan leptones, en particular leptones de la familia \(\tau\), la interacción es \setulcolor{pinkwave}\ul{nuclear débil}.
-            
-            Finalmente, puesto que se conservan todos los números cuánticos, podemos hacer el diagrama de Feynman:
-
-            \begin{figure}[htb]
-                \centering
-                \feynmandiagram [layered layout, horizontal=a to b] {
-                    a [particle=\(\tau^{-}\)] -- [fermion] b -- [fermion] f1 [particle=\(\nu_{\tau}\)],
-                    b -- [scalar, edge label=\(W^{-}\)] c,
-                    c -- [anti fermion ] f2 [particle=\(\overline{\nu}_{\mu}\)],
-                    c -- [fermion] f3 [particle=\(\mu^{-}\)]
-                };
-                \caption{Diagrama de Feynamn para el decaimiento del tauón.}
-                \label{fig:tauon-decay}
-            \end{figure}
-        \end{solution}
+        \begin{equation*}
+            \observable{J}[\pm]\ket{j,m} = \sqrt{j(j + 1) - m(m \pm 1)}\hbar\ket{j, m \pm 1}.
+        \end{equation*}
     \end{exercise}
 \end{document}

@@ -4,32 +4,13 @@
 \graphicspath{{img/}}
 
 \begin{document}
-    \begin{exercise}
-        Calcula el factor relativista \(\gamma\) de un protón de \qty{10}{\GeV} de energía total y de un electrón de \qty{1}{\GeV}.
+    \begin{exercise}[Adición de momentos angulares: acoplamiento entre momento angular orbital y de spin (valor total: 5 pt)]
+        Considera una partícula cuyos números cuánticos de momento angular orbital y de spin son \(j_{1} = 1\) y \(j_{2} = 1/2\), respectivamente. Realiza la adición de estos momentos angulares, es decir:
 
-        \begin{solution}
-            Recordemos que el factor relativista \(\gamma\) está dado por:
-
-            \begin{equation}
-                \gamma = \dfrac{E}{m c^{2}}.
-                \label{eq:relativistic-factor}
-            \end{equation}
-
-            Además, que las masas del electrón (\(m_{\e}\)) y protón (\(m_{p}\)) son \qty{0.511}{\MeV\per\clightsq} y \qty{938}{\MeV\per\clightsq}, respectivamente. Por lo tanto, el factor relativista del protón es:
-
-            \begin{align*}
-                \gamma_{p} &= \dfrac{\qty{10e9}{\eV}}{(\qty{938e6}{\eV\per\clightsq}) \cdot c^{2}},\\
-                &= \dfrac{\qty{10e9}{\eV}}{\qty{938e6}{\eV}},\\
-                \Acolorboxed{\gamma_{p} &= \qty{10.661}{\eV}.}
-            \end{align*}
-
-            Y para el electrón,
-
-            \begin{align*}
-                \gamma_{\e} &= \dfrac{\qty{1e9}{\eV}}{(\qty{0.511e6}{\eV\per\clightsq}) \cdot c^{2}},\\
-                &= \dfrac{\qty{1e9}{\eV}}{\qty{0.511e6}{\eV}},\\
-                \Acolorboxed{\gamma_{\e} &= \qty{1956.95}{\eV}.}
-            \end{align*}
-        \end{solution}
-    \end{exercise}
+        \begin{enumerate}[label=(\alph*)]
+            \item Valor: 1.0 pt - Determina los posibles valores de los números cuánticos \(j\) y \(m\) del sistema acoplado.
+            \item Valor: 3.0 pt - Expresa los elementos de la base acoplada \(\set{\ket{j,m}}\) en términos de los elementos de la base desacoplada \(\set{\ket{j_{1}, j_{2}; m_{1}, m_{2}}}\). Para ello debes calcular ``a mano'' todos los coeficientes de Clebsch-Gordan involucrados, \(\braket{j_{1},j_{2}; m_{1}, m_{2}}{j,m}\).
+            \item Valor 1.0 pt - Escribe la matriz de transformación entre estas dos bases.
+        \end{enumerate}
+    \end{exercise} 
 \end{document}

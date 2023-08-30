@@ -1,6 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage{polyglossia}
 \usepackage{fontspec}
+\usepackage{savesym} % Renames commands for conflicted packages
 \usepackage[export]{adjustbox}
 \usepackage{amsfonts, amsmath, amssymb}
 \usepackage{annotate-equations}
@@ -17,13 +18,18 @@
 \usepackage{kantlipsum}
 \usepackage{lastpage}
 \usepackage{linebreaker} % line-breaker algorithm in LuaLaTeX
+\usepackage{linop}
 \usepackage{lualatex-math} % Fixes for mathematics
 \usepackage{mathtools}
 \usepackage{microtype}
 \usepackage{mismath}
+\savesymbol{tr}
+\savesymbol{rank}
 \usepackage{nicefrac}
 \usepackage[hyperref]{ntheorem}
-% \usepackage{phfqit} % Bra-ket notation
+\usepackage{phfqit} % Bra-ket notation
+\savesymbol{so}
+\usepackage{regexpatch}
 \usepackage[nolabel]{showlabels}
 \usepackage{simples-matrices}
 \usepackage{siunitx}
@@ -34,7 +40,7 @@
 \usepackage{tabularray}
 \usepackage{tasks}
 \usepackage{tensor}
-\usepackage[compat=1.1.0]{tikz-feynman}
+% \usepackage[compat=1.1.0]{tikz-feynman}
 \usepackage{xcolor}
 \usepackage{xfrac}
 \usepackage{xparse}
@@ -69,6 +75,33 @@
 
 %%%%%%%%%%%%%%%%%%Theorem environments%%%%%%%%%%%%%%%%%%
 % Configuración de ambiente para problema
+% \makeatletter
+% \renewtheoremstyle{break}%
+%     {\item[\rlap{\vbox{\hbox{\hskip\labelsep \theorem@headerfont
+%         ##1\ ##2\theorem@separator}\hbox{\strut}}}]}%
+%     {\item[\rlap{\vbox{\hbox{\hskip\labelsep \theorem@headerfont
+%         ##1\ ##2:\ ##3\theorem@separator}\hbox{\strut}}}]}%
+% \makeatother
+
+\makeatletter
+\let\nobreakitem\item
+\let\@nobreakitem\@item
+\xpatchcmd{\nobreakitem}{\@item}{\@nobreakitem}{}{}
+\xpatchcmd{\nobreakitem}{\@item}{\@nobreakitem}{}{}
+\xpatchcmd{\@nobreakitem}{\@itempenalty}{\@M}{}{}
+\xpatchcmd{\@xthm}{\ignorespaces}{\nobreak\ignorespaces}{}{}
+\xpatchcmd{\@ythm}{\ignorespaces}{\nobreak\ignorespaces}{}{}
+
+\renewtheoremstyle{break}%
+  {\item{\theorem@headerfont
+          ##1\ ##2\theorem@separator}\hskip\labelsep\relax\nobreakitem}%
+  {\item{\theorem@headerfont
+          ##1\ ##2:\ ##3\theorem@separator}\hskip\labelsep\relax\nobreakitem}
+% make \th@nonumberbreak the same as \th@break, but remove "\ ##2"
+\let\th@nonumberbreak\th@break
+\xpatchcmd*{\th@nonumberbreak}{\ ##2}{}{}{}
+\makeatother
+
 \theoremstyle{break}
 \theoremheaderfont{\Large\normalfont\bfseries}
 \theorembodyfont{\normalfont}
@@ -129,8 +162,8 @@
     menubordercolor={[rgb]{0,0.2,0.6}},% 
     pdftitle={Tarea 1},%
     pdfauthor={López Merino Marcos},%
-    pdfsubject={Física Nuclear y Subnuclear},%
-    pdfkeywords={Facultad de Ciencias, UNAM, Física Nuclear y Subnuclear, Diagramas de Feynman, Sección eficaz},%
+    pdfsubject={Física Atómica y Materia Condensada},%
+    pdfkeywords={Facultad de Ciencias, UNAM, Física Atómica y Materia Condensada, Adición de momentos angulares, Teoría de perturbaciones},%
     unicode = true%
 }
 
@@ -167,8 +200,8 @@
 }
 
 %%%%%%%%%%%%%%%%%%Nuevos comandos%%%%%%%%%%%%%%%%%%
-\newcommand*{\group}{8426}
-\newcommand*{\classname}{Física Nuclear y Subnuclear}
+\newcommand*{\group}{8287}
+\newcommand*{\classname}{Física Atómica y Materia Condensada}
 \newcommand*{\homeworknumber}{Tarea 1}
 \newcommand*{\name}{Marcos López Merino}
 
@@ -191,6 +224,18 @@
     \mathbb{#1}^{#2}%
   }{%
     \mathbb{#1}%
+  }%
+}
+% Observable operator with a subscript and superscript optional arguments
+\NewDocumentCommand{\observable}{m o o}{%
+  \IfValueTF{#3}{%
+    \op{#1}{#2}{#3}%
+  }{%
+    \IfValueTF{#2}{%
+      \op{#1}{#2}%
+    }{%
+      \op{#1}%
+    }
   }%
 }
 
@@ -288,9 +333,4 @@
     % Problema 3
     \subfileinclude{exercises/exercise3.tex}
 
-    % Problema 4
-    \subfileinclude{exercises/exercise4.tex}
-
-    % Problema 5
-    \subfileinclude{exercises/exercise5.tex}
 \end{document}

@@ -2,40 +2,23 @@
 \graphicspath{{img/}}
 
 \begin{document}
-    \begin{exercise}
-        Calcula el camino libre medio de ese mismo protón que cruza un bloque de plomo, con sección eficaz de \qty{1}{\barn}.
+    \begin{exercise}[Perturbación en un sistema de tres estados (valor total: 5 pt)]
+        Considera un sistema que solo tiene tres estados linealmente independientes. Considera ahora que el Hamiltoniano del sistema está dado por la siguiente matriz:
 
-        \begin{solution}
-            Sabemos que el camino libre medio se obtiene a partir de
+        \begin{equation*}
+            \observable{H} = 
+                V_{0}
+                \matrice{1 - \epsilon, 0, 0, 0, 1, \epsilon, 0, \epsilon, 2},
+        \end{equation*}
 
-            \begin{equation}
-                \lambda = \dfrac{1}{n \sigma},
-                \label{eq:mean-free-path}
-            \end{equation}
+        en donde \(V_{0}\) es una constante y \(\epsilon\) es un número pequeño, es decir, \(\epsilon \ll 1\).
 
-            donde \(\sigma\) es la sección eficaz y \(n = \rho N_{A} / A\) es la densidad volumétrica de blancos.
-
-            Para poder obtener el valor de \(n\), debemos conocer \(\rho\), \(A\) y \(N_{A}\). 
-
-            \begin{align*}
-                \rho &= \qty{1.1350}{\g\per\cm\cubed}, \\
-                A &= \qty[per-mode=symbol]{207.2}{\g\per\mol},\\
-                N_{A} &= \qty[per-mode=symbol]{6.022e23}{\per\mol}.
-            \end{align*}
-
-            Así, la densidad de blancos \(n\) es:
-
-            \begin{align}
-                n &= \dfrac{\qty{1.1350}{\g\per\cm\cubed}(\qty{6.022e23}{mol^{-1}})}{\qty{207.2}{\g\per\mol}} \nonumber\\
-                \Aboxed{n &= \qty{3.2987e21}{\cm^{-3}}.}\label{eq:volumetric-density-of-targets}
-            \end{align}
-
-            Sustituyendo \cref{eq:volumetric-density-of-targets} y \(\sigma = \qty{1}{\barn} = \qty{1e-24}{\cm\squared}\) en \cref{eq:mean-free-path}, obtenemos:
-
-            \begin{align*}
-                \lambda &= \dfrac{1}{(\qty{3.2987e21}{\cm^{-3}})(\qty{1e-24}{\cm\squared})}\\
-                \Acolorboxed{\lambda &= \qty{303.147}{\cm}.}
-            \end{align*}
-        \end{solution}
+        \begin{enumerate}[label=(\alph*)]
+            \item Valor: 0.5 pt - Si consideramos que \(\epsilon\) es ele resultado de una perturbación, escribe este Hamiltoniano como la suma de un Hamiltoniano imperturbado \(\observable{H}[0]\) y una perturbación \(\observable{W}\), es decir, \(\observable{H} = \observable{H}[0] + \observable{W}\), de tal forma que \(\observable{H} = \observable{H}[0]\) cuando \(\epsilon = 0\).
+            \item Valor: 0.5 pt - ¿Quiénes son los eigenvalores y los eigenvectores del Hamiltoniano imperturbado \(\observable{H}[0]\)? Nota que este Hamiltoniano tiene un eigenvalor no degenerado y dos eigenvalores degenerados.
+            \item Valor: 1.0pt - El Hamiltoniano \(\observable{H}\) puede resolverse exactamente Encuentra los eigenvalores exactos de \(\observable{H}\). Una vez que los hayas encontrado, exprésalos como una serie de potencias de Taylor en \(\epsilon\) hasta segundo orden, es decir, conserva todos los términos con orden igual o menor a \(\epsilon^{2}\).
+            \item Valor: 1.0pt - Utiliza el caso \textbf{no} degenerado de la teoría de perturbaciones independientes del tiempo para calcular las correcciones a primer orden y segundo orden del eigenvalor \textbf{no} degenerado del Hamiltoniano imperturbado \(\observable{H}[0]\). Compara este resultado con el que encontraste en (c).
+            \item Valor: 2.0pt - Utiliza ahora el caso degenerado de la teoría de perturbaciones independientes del tiempo para calcular las correcciones a primer orden de los dos eigenvalores degenerados de \(\observable{H}[0]\). Compara con los resultados del inciso (c).
+        \end{enumerate}
     \end{exercise}
 \end{document}
