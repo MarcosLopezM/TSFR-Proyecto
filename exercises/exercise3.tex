@@ -8,14 +8,85 @@
 
         Recuerda que la definición de la desviación estándar de un operador \(\observable{\mathcal{O}}\) es
 
-        \begin{equation*}
+        \begin{equation}
             \change{\observable{\mathcal{O}}} = \sqrt{\avg{\observable{\mathcal{O}}[][2]} - \avg{\observable{\mathcal{O}}}^{2}}.
-        \end{equation*}
+            \label{eq:RMS}
+        \end{equation}
 
         \textbf{Sugerencia:} Utiliza los operadores de ascenso y descenso, \(\observable{J}[+] = \observable{J}[x] + i\observable{J}[y]\) y \(\observable{J}[-] = \observable{J}[x] - i\observable{J}[y]\), recordando que su acción sobre los estados \(\ket{j,m}\) es:
 
         \begin{equation*}
             \observable{J}[\pm]\ket{j,m} = \sqrt{j(j + 1) - m(m \pm 1)}\hbar\ket{j, m \pm 1}.
         \end{equation*}
+
+        \color{black}
+        \begin{solution}
+            A partir de los operadores de ascenso y descenso podemos encontrar a los operadores \(\observable{J}[x]\) y \(\observable{J}[y]\), tal que,
+
+            \begin{equation*}
+                \observable{J}[x] = \dfrac{\observable{J}[+] + \observable{J}[-]}{2}\quad \wedge\quad \observable{J}[y] = \dfrac{\observable{J}[+] - \observable{J}[-]}{2i}.
+            \end{equation*}
+
+            Recordemos que el valor esperado está dado por:
+
+            \begin{equation*}
+                \avg{\observable{\mathcal{O}}} = \matrixel{j, m}{\observable{\mathcal{O}}}{j, m}.
+            \end{equation*}
+
+            Por un lado, tenemos que \(\avg{\observable{J}[x]}\) y \(\avg{\observable{J}[y]}\),
+
+            \begin{align*}
+                \avg{\observable{J}[x]} &= \frac{1}{2}\matrixel{j^{\prime}, m^{\prime}}{(\observable{J}[+] + \observable{J}[-])}{j, m} = \frac{1}{2}\left[\matrixel{j^{\prime}, m^{\prime}}{\observable{J}[+]}{j, m} + \matrixel{j^{\prime}, m^{\prime}}{\observable{J}[-]}{j, m}\right],\\
+                \avg{\observable{J}[x]} &= \frac{1}{2}\left[\sqrt{j(j + 1) - m(m + 1)}\braket{j^{\prime}, m^{\prime}}{j, m + 1} + \sqrt{j(j + 1) - m(m - 1)}\braket{j^{\prime}, m^{\prime}}{j, m - 1}\right],\\
+                \avg{\observable{J}[y]} &= \frac{1}{2i}\left[\sqrt{j(j + 1) - m(m + 1)}\braket{j^{\prime}, m^{\prime}}{j, m + 1} - \sqrt{j(j + 1) - m(m - 1)}\braket{j^{\prime}, m^{\prime}}{j, m - 1}\right],
+            \end{align*}
+
+            pero
+
+            \begin{align}
+                \braket{j^{\prime}, m^{\prime}}{j, m + 1} &= 0,\nonumber\\
+                \braket{j^{\prime}, m^{\prime}}{j, m - 1} &= 0,\nonumber\\
+                \Acolorboxed{\avg{\observable{J}[x]} = \avg{\observable{J}[y]} &= 0.}\label{eq:expectation-values-Jx-Jy}
+            \end{align}
+
+            Por el otro, para \(\avg{\observable{J}[x][2]}\) y \(\avg{\observable{J}[y][2]}\) se tiene que
+
+            \begin{equation*}
+                \avg{\observable{J}[x][2]} = \frac{1}{4}\matrixel{j, m}{(\observable{J}[+] + \observable{J}[-])^{2}}{j, m} = \frac{1}{4}\matrixel{j, m}{\observable{J}[+][2] + \observable{J}[+]\observable{J}[-] + \observable{J}[-]\observable{J}[+] + \observable{J}[-][2]}{j, m}. 
+            \end{equation*}
+
+            Recordando que existen las siguientes relaciones:
+
+            \begin{align*}
+                \observable{J}[+]\observable{J}[-] &= \observable{J}[][2] - \observable{J}[z][2] + \hbar\observable{J}[z],\\
+                \observable{J}[-]\observable{J}[+] &= \observable{J}[][2] - \observable{J}[z][2] - \hbar\observable{J}[z].
+            \end{align*}
+
+            De esta manera, la expresión anterior queda como
+
+            \begin{align}
+                \avg{\observable{J}[x][2]} &= \frac{1}{4}\matrixel{j, m}{\observable{J}[+][2] + \observable{J}[+]\observable{J}[-] + \observable{J}[-]\observable{J}[+] + \observable{J}[-][2]}{j, m},\nonumber\\
+                &= \frac{1}{4}\matrixel{j, m}{\observable{J}[+][2] + (\observable{J}[][2] - \observable{J}[z][2] + \hbar\observable{J}[z]) + (\observable{J}[][2] - \observable{J}[z][2] - \hbar\observable{J}[z]) + \observable{J}[-][2]}{j, m},\nonumber\\
+                &= \frac{1}{4}\matrixel{j, m}{2\observable{J}[][2] - 2\observable{J}[z][2]}{j, m},\nonumber\\
+                &= \frac{1}{2}\left[\matrixel{j, m}{\observable{J}[][2]}{j, m} - \matrixel{j, m}{\observable{J}[z][2]}{j, m}\right],\nonumber\\
+                \Acolorboxed[customBlue]{\avg{\observable{J}[x][2]} &= \frac{\hbar^{2}}{2}\left[j(j + 1) - m^{2}\right].}\label{eq:expectation-value-Jx-square}
+            \end{align}
+            
+            Análogamente para \(\avg{\observable{J}[y][2]} = \avg{\observable{J}[x][2]}\).
+
+            Sustituyendo \cref{eq:expectation-values-Jx-Jy,eq:expectation-value-Jx-square} respectivamente para \(\change{\observable{J}[x]}\) y \(\change{\observable{J}[y]}\),
+
+            \begin{align*}
+                \change{\observable{J}[x]} &= \sqrt{\avg{\observable{J}[x][2]} - \avg{\observable{J}[x]}^{2}},\\
+                &= \sqrt{\frac{\hbar^{2}}{2}\left[j(j + 1) - m^{2}\right] - 0^{2}},\\
+                \Acolorboxed[customBlue]{\change{\observable{J}[x]} &= \sqrt{\frac{\hbar^{2}}{2}\left[j(j + 1) - m^{2}\right]} = \change{\observable{J}[y]}.}
+            \end{align*}
+
+            Por lo que la relación de incertidumbre \(\change{\observable{J}[x]}\change{\observable{J}[y]}\) es igual a
+
+            \begin{empheq}[box = \color{pinkwave}\fbox]{equation*}
+                \change{\observable{J}[x]}\change{\observable{J}[y]} = \frac{\hbar^{2}}{2}\left[j(j + 1) - m^{2}\right].
+            \end{empheq}
+        \end{solution}
     \end{exercise}
 \end{document}
