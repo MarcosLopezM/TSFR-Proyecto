@@ -72,7 +72,7 @@
                 Empezamos expresando el estado de máximo valor de \(j\) y \(m\), \(\ket{\frac{3}{2},\frac{3}{2}}\). Así,
 
                 \begin{equation}
-                    \ket{\frac{3}{2}, \frac{3}{2}} = \sum_{m_{1} = -1}^{1}\sum_{m_{2} = \frac{1}{2}}^{\frac{1}{2}}\braket{1, \frac{1}{2}; m_{1}, m_{2}}{\frac{3}{2}, \frac{3}{2}}\ket{1, \frac{1}{2}; \frac{3}{2}, \frac{3}{2}}.
+                    \ket{\tfrac{3}{2}, \tfrac{3}{2}} = \sum_{m_{1} = -1}^{1}\sum_{m_{2} = \tfrac{1}{2}}^{\tfrac{1}{2}}\braket{1, \tfrac{1}{2}; m_{1}, m_{2}}{\tfrac{3}{2}, \tfrac{3}{2}}\ket{1, \tfrac{1}{2}; \tfrac{3}{2}, \tfrac{3}{2}}.
                     \label{eq:j32-m32}
                 \end{equation}
 
@@ -85,14 +85,14 @@
                 Y para este caso tenemos que \(m = \frac{3}{2}\). Lo cual es válido únicamente cuando \(m_{1} = 1\) y \(m_{2} = \frac{1}{2}\), por lo que \cref{eq:j32-m32} se reduce a un solo término:
 
                 \begin{equation*}
-                    \ket{\frac{3}{2}, \frac{3}{2}} = \braket{1, \frac{1}{2}; 1, \frac{1}{2}}{\frac{3}{2}, \frac{3}{2}}\ket{1, \frac{1}{2}; 1, \frac{1}{2}}.
+                    \ket{\tfrac{3}{2}, \tfrac{3}{2}} = \braket{1, \tfrac{1}{2}; 1, \tfrac{1}{2}}{\tfrac{3}{2}, \tfrac{3}{2}}\ket{1, \tfrac{1}{2}; 1, \tfrac{1}{2}}.
                 \end{equation*}
 
                 Además necesitamos la condición de normalización,
 
                 \begin{align*}
-                    \braket{1, \frac{1}{2}; 1, \frac{1}{2}}{\frac{3}{2}, \frac{3}{2}}^{2} &= 1,\\
-                    \braket{1, \frac{1}{2}; 1, \frac{1}{2}}{\frac{3}{2}, \frac{3}{2}} &= \pm 1.
+                    \braket{1, \tfrac{1}{2}; 1, \tfrac{1}{2}}{\tfrac{3}{2}, \tfrac{3}{2}}^{2} &= 1,\\
+                    \braket{1, \tfrac{1}{2}; 1, \tfrac{1}{2}}{\tfrac{3}{2}, \tfrac{3}{2}} &= \pm 1.
                 \end{align*}
 
                 Para determinar el signo del coeficiente usamos la condición de Condon-Shortley,
@@ -104,15 +104,15 @@
                 Por lo que el signo de nuestro coeficiente es
 
                 \begin{equation*}
-                    \braket{1, \frac{1}{2}; 1, \frac{1}{2}}{\frac{3}{2}, \frac{3}{2}} = 1.
+                    \braket{1, \tfrac{1}{2}; 1, \tfrac{1}{2}}{\tfrac{3}{2}, \tfrac{3}{2}} = 1.
                 \end{equation*}
 
                 Entonces
 
                 \begin{empheq}[box = \color{pinkwave}\fbox]{equation}
                     \begin{alignedat}{1}
-                        \ket{\dfrac{3}{2}, \frac{3}{2}} &= \ket{1, \frac{1}{2}; 1, \frac{1}{2}},\\
-                        \braket{1, \frac{1}{2}; 1, \frac{1}{2}}{\frac{3}{2}, \frac{3}{2}} &= 1.\quad (\text{CCG})
+                        \ket{\tfrac{3}{2}, \tfrac{3}{2}} &= \ket{1, \tfrac{1}{2}; 1, \tfrac{1}{2}},\\
+                        \braket{1, \tfrac{1}{2}; 1, \tfrac{1}{2}}{\tfrac{3}{2}, \tfrac{3}{2}} &= 1.\quad (\text{CCG})
                     \end{alignedat}
                     \label{eq:3232-CCG}
                 \end{empheq}
@@ -120,71 +120,71 @@
                 Ahora, para generar a \(\ket{\frac{3}{2}, \frac{1}{2}}\) podemos aplicar \(\observable{J}[-] = \observable{J}[1-] + \observable{J}[2-]\) a \cref{eq:3232-CCG},
 
                 \begin{align}
-                    \observable{J}[-]\ket{\frac{3}{2}, \frac{3}{2}} &= \observable{J}[1-]\ket{1, \frac{1}{2}; 1, \frac{1}{2}} + \observable{J}[2-]\ket{1, \frac{1}{2}; 1, \frac{1}{2}},\nonumber\\\
-                    \hbar\sqrt{\frac{3}{2}\left(\frac{3}{2} + 1\right) - \frac{3}{2}\left(\frac{3}{2} - 1\right)}\ket{\frac{3}{2}, \frac{1}{2}} &= \hbar\sqrt{1(1 + 1) - 1(1 - 1)}\ket{1, \frac{1}{2}; 0, \frac{1}{2}}\nonumber\\
-                    &+ \hbar\sqrt{\frac{1}{2}\left(\frac{1}{2} + 1\right) - \frac{1}{2}\left(\frac{1}{2} - 1\right)}\ket{1, \frac{1}{2}; 1, -\frac{1}{2}},\nonumber\\
-                    \Acolorboxed{\ket{\frac{3}{2}, \frac{1}{2}} &= \sqrt{\frac{2}{3}}\ket{1, \frac{1}{2}; 0, \frac{1}{2}} + \frac{1}{\sqrt{3}}\ket{1, \frac{1}{2}; 1, -\frac{1}{2}}.}\label{eq:3212-CCG}
+                    \observable{J}[-]\ket{\tfrac{3}{2}, \tfrac{3}{2}} &= \observable{J}[1-]\ket{1, \tfrac{1}{2}; 1, \tfrac{1}{2}} + \observable{J}[2-]\ket{1, \tfrac{1}{2}; 1, \tfrac{1}{2}},\nonumber\\\
+                    \hbar\sqrt{\tfrac{3}{2}\left(\tfrac{3}{2} + 1\right) - \tfrac{3}{2}\left(\tfrac{3}{2} - 1\right)}\ket{\tfrac{3}{2}, \tfrac{1}{2}} &= \hbar\sqrt{1(1 + 1) - 1(1 - 1)}\ket{1, \tfrac{1}{2}; 0, \tfrac{1}{2}}\nonumber\\
+                    &+ \hbar\sqrt{\tfrac{1}{2}\left(\tfrac{1}{2} + 1\right) - \tfrac{1}{2}\left(\tfrac{1}{2} - 1\right)}\ket{1, \tfrac{1}{2}; 1, -\tfrac{1}{2}},\nonumber\\
+                    \Acolorboxed{\ket{\tfrac{3}{2}, \tfrac{1}{2}} &= \sqrt{\tfrac{2}{3}}\ket{1, \tfrac{1}{2}; 0, \tfrac{1}{2}} + \tfrac{1}{\sqrt{3}}\ket{1, \tfrac{1}{2}; 1, -\tfrac{1}{2}}.}\label{eq:3212-CCG}
                 \end{align}
 
                 Los CCG son
 
                 \begin{empheq}[box = \color{customBlue} \fbox]{align*}
-                    \braket{1, \frac{1}{2}; 0, \frac{1}{2}}{\frac{3}{2}, \frac{1}{2}} &= \sqrt{\frac{2}{3}},\\
-                    \braket{1, \frac{1}{2}; 1, -\frac{1}{2}}{\frac{3}{2}, \frac{1}{2}} &= \frac{1}{\sqrt{3}}.
+                    \braket{1, \tfrac{1}{2}; 0, \tfrac{1}{2}}{\tfrac{3}{2}, \tfrac{1}{2}} &= \sqrt{\tfrac{2}{3}},\\
+                    \braket{1, \tfrac{1}{2}; 1, -\tfrac{1}{2}}{\tfrac{3}{2}, \tfrac{1}{2}} &= \tfrac{1}{\sqrt{3}}.
                 \end{empheq}
 
                 Repetimos el procedimiento: aplicamos \(\observable{J}[-]\) a \cref{eq:3212-CCG},
 
                 \begin{align}
-                    \observable{J}[-]\ket{\frac{3}{2}, \frac{1}{2}} &= \sqrt{\frac{2}{3}}(\observable{J}[1-] + \observable{J}[2-])\ket{1, \frac{1}{2}; 0, \frac{1}{2}} + \frac{2}{\sqrt{3}}(\observable{J}[1-] + \observable{J}[2-])\ket{1, \frac{1}{2}; 1, -\frac{1}{2}},\nonumber\\
-                    2\ket{\frac{3}{2}, -\frac{1}{2}} &= \sqrt{\frac{2}{3}}\left[\sqrt{2}\ket{1, \frac{1}{2}; -1, \frac{1}{2}} + \ket{1, \frac{1}{2}; 0, -\frac{1}{2}}\right] + \frac{1}{\sqrt{3}}\left[\sqrt{2}\ket{1, \frac{1}{2}; 0, -\frac{1}{2}}\right],\nonumber\\
-                    \Acolorboxed{\ket{\frac{3}{2}, -\frac{1}{2}} &= \frac{1}{\sqrt{3}}\ket{1, \frac{1}{2}; -1, \frac{1}{2}} + \sqrt{\frac{2}{3}}\ket{1, \frac{1}{2}; 0, -\frac{1}{2}}.}\label{eq:32-12-CCG}
+                    \observable{J}[-]\ket{\tfrac{3}{2}, \tfrac{1}{2}} &= \sqrt{\tfrac{2}{3}}(\observable{J}[1-] + \observable{J}[2-])\ket{1, \tfrac{1}{2}; 0, \tfrac{1}{2}} + \tfrac{2}{\sqrt{3}}(\observable{J}[1-] + \observable{J}[2-])\ket{1, \tfrac{1}{2}; 1, -\tfrac{1}{2}},\nonumber\\
+                    2\ket{\tfrac{3}{2}, -\tfrac{1}{2}} &= \sqrt{\tfrac{2}{3}}\left[\sqrt{2}\ket{1, \tfrac{1}{2}; -1, \tfrac{1}{2}} + \ket{1, \tfrac{1}{2}; 0, -\tfrac{1}{2}}\right] + \tfrac{1}{\sqrt{3}}\left[\sqrt{2}\ket{1, \tfrac{1}{2}; 0, -\tfrac{1}{2}}\right],\nonumber\\
+                    \Acolorboxed{\ket{\tfrac{3}{2}, -\tfrac{1}{2}} &= \tfrac{1}{\sqrt{3}}\ket{1, \tfrac{1}{2}; -1, \tfrac{1}{2}} + \sqrt{\tfrac{2}{3}}\ket{1, \tfrac{1}{2}; 0, -\tfrac{1}{2}}.}\label{eq:32-12-CCG}
                 \end{align}
 
                 Los CCG son:
 
                 \begin{empheq}[box = \color{customBlue}\fbox]{align*}
-                    \braket{\frac{3}{2}, -\frac{1}{2}}{\frac{3}{2}, -\frac{1}{2}} &= \frac{1}{\sqrt{3}},\\
-                    \braket{1, \frac{1}{2}; 0, -\frac{1}{2}}{\frac{3}{2}, -\frac{1}{2}} &= \sqrt{\frac{2}{3}}.
+                    \braket{\tfrac{3}{2}, -\tfrac{1}{2}}{\tfrac{3}{2}, -\tfrac{1}{2}} &= \tfrac{1}{\sqrt{3}},\\
+                    \braket{1, \tfrac{1}{2}; 0, -\tfrac{1}{2}}{\tfrac{3}{2}, -\tfrac{1}{2}} &= \sqrt{\tfrac{2}{3}}.
                 \end{empheq}
 
                 Repetimos el procedimiento: aplicamos \(\observable{J}[-]\) a \cref{eq:32-12-CCG},
 
                 \begin{align}
-                    \observable{J}[-]\ket{\frac{3}{2}, -\frac{1}{2}} &= \frac{1}{\sqrt{3}}(\observable{J}[1-] + \observable{J}[2-])\ket{1, \frac{1}{2}; -1, \frac{1}{2}} + \sqrt{\frac{2}{3}}(\observable{J}[1-] + \observable{J}[2-])\ket{1, \frac{1}{2}; 0, -\frac{1}{2}},\nonumber\\
-                    \Acolorboxed{\ket{\frac{3}{2}, -\frac{3}{2}} &= \ket{1, \frac{1}{2}; -1, -\frac{1}{2}}.}\label{eq:32-32-CCG}
+                    \observable{J}[-]\ket{\tfrac{3}{2}, -\tfrac{1}{2}} &= \tfrac{1}{\sqrt{3}}(\observable{J}[1-] + \observable{J}[2-])\ket{1, \tfrac{1}{2}; -1, \tfrac{1}{2}} + \sqrt{\tfrac{2}{3}}(\observable{J}[1-] + \observable{J}[2-])\ket{1, \tfrac{1}{2}; 0, -\tfrac{1}{2}},\nonumber\\
+                    \Acolorboxed{\ket{\tfrac{3}{2}, -\tfrac{3}{2}} &= \ket{1, \tfrac{1}{2}; -1, -\tfrac{1}{2}}.}\label{eq:32-32-CCG}
                 \end{align}
 
                 El CCG es
 
                 \begin{empheq}[box = \color{customBlue}\fbox]{equation*}
-                    \braket{1, \frac{1}{2}; -1, -\frac{1}{2}}{\frac{3}{2}, -\frac{3}{2}}.
+                    \braket{1, \tfrac{1}{2}; -1, -\tfrac{1}{2}}{\tfrac{3}{2}, -\tfrac{3}{2}}.
                 \end{empheq}
 
                 Ahora hay que encontrar \(\ket{\frac{1}{2}, \frac{1}{2}}\) que está en el subespacio \(\set{\ket{j = \frac{1}{2}, m}}\). Usamos \cref{eq:coupled-base-elements}:
 
                 \begin{equation}
-                    \ket{\frac{1}{2}, \frac{1}{2}} = \sum_{m_{1} = -1}^{1}\sum_{m_{2} = -\frac{1}{2}}^{\frac{1}{2}}\braket{1, \frac{1}{2}; m_{1}, m_{2}}{\frac{1}{2}, \frac{1}{2}}\ket{1, \frac{1}{2}; m_{1}, m_{2}}.
+                    \ket{\tfrac{1}{2}, \tfrac{1}{2}} = \sum_{m_{1} = -1}^{1}\sum_{m_{2} = -\tfrac{1}{2}}^{\tfrac{1}{2}}\braket{1, \tfrac{1}{2}; m_{1}, m_{2}}{\tfrac{1}{2}, \tfrac{1}{2}}\ket{1, \tfrac{1}{2}; m_{1}, m_{2}}.
                     \label{eq:coupled-elements-2nd-subspace}
                 \end{equation}
 
                 Y sabemos que se deben cumplir las reglas de relación de los CCG, \(m = m_{1} + m_{2}\ \implies m = \frac{1}{2}\), lo cual se cumple únicamente cuando \(m_{1} = 0\) y \(m_{2} = \frac{1}{2}\), \(m_{1} = 1\) y \(m_{2} = -\frac{1}{2}\).
 
                 \begin{equation*}
-                    \ket{\frac{1}{2}, \frac{1}{2}} = \braket{1, \frac{1}{2}; 0, \frac{1}{2}}{\frac{1}{2}, \frac{1}{2}}\ket{1, \frac{1}{2}; 0, \frac{1}{2}} + \braket{1, \frac{1}{2}; 1, -\frac{1}{2}}{\frac{1}{2}, \frac{1}{2}}\ket{1, \frac{1}{2}; 1, -\frac{1}{2}}.
+                    \ket{\tfrac{1}{2}, \tfrac{1}{2}} = \braket{1, \tfrac{1}{2}; 0, \tfrac{1}{2}}{\tfrac{1}{2}, \tfrac{1}{2}}\ket{1, \tfrac{1}{2}; 0, \tfrac{1}{2}} + \braket{1, \tfrac{1}{2}; 1, -\tfrac{1}{2}}{\tfrac{1}{2}, \tfrac{1}{2}}\ket{1, \tfrac{1}{2}; 1, -\tfrac{1}{2}}.
                 \end{equation*}
 
                 Definimos
                 
                 \begin{align*}
-                    a &= \braket{1, \frac{1}{2}; 0, \frac{1}{2}}{\frac{1}{2}, \frac{1}{2}},\\
-                    b &= \braket{1, \frac{1}{2}; 1, -\frac{1}{2}}{\frac{1}{2}, \frac{1}{2}}.
+                    a &= \braket{1, \tfrac{1}{2}; 0, \tfrac{1}{2}}{\tfrac{1}{2}, \tfrac{1}{2}},\\
+                    b &= \braket{1, \tfrac{1}{2}; 1, -\tfrac{1}{2}}{\tfrac{1}{2}, \tfrac{1}{2}}.
                 \end{align*}
 
                 Entonces,
 
                 \begin{equation}
-                    \ket{\frac{1}{2}, \frac{1}{2}} = a\ket{1, \frac{1}{2}; 0, \frac{1}{2}} + b\ket{1, \frac{1}{2}; 1, -\frac{1}{2}}.
+                    \ket{\tfrac{1}{2}, \tfrac{1}{2}} = a\ket{1, \tfrac{1}{2}; 0, \tfrac{1}{2}} + b\ket{1, \tfrac{1}{2}; 1, -\tfrac{1}{2}}.
                     \label{eq:1212-substitute-CCG}
                 \end{equation}
 
@@ -195,55 +195,57 @@
                     \label{eq:normalization-condition-1212-CCG}
                 \end{equation}
 
+                \pagebreak
                 Aplicamos \(\observable{J}[+]\) a \cref{eq:1212-substitute-CCG}
 
                 \begin{align}
-                    \observable{J}[+]\ket{\frac{1}{2}, \frac{1}{2}} &= a(\observable{J}[1+] + \observable{J}[2+])\ket{1, \frac{1}{2}; 0, \frac{1}{2}} + b(\observable{J}[1+] + \observable{J}[2+])\ket{1, \frac{1}{2}; 1, -\frac{1}{2}},\nonumber\\
-                    0 &= \sqrt{2}a\ket{1, \frac{1}{2}; 1, \frac{1}{2}} + b\ket{1, \frac{1}{2}; 1, \frac{1}{2}},\nonumber\\
-                    0 &= (\sqrt{2}a + b)\ket{1, \frac{1}{2}; 1, \frac{1}{2}},\nonumber\\
+                    \observable{J}[+]\ket{\tfrac{1}{2}, \tfrac{1}{2}} &= a(\observable{J}[1+] + \observable{J}[2+])\ket{1, \tfrac{1}{2}; 0, \tfrac{1}{2}} + b(\observable{J}[1+] + \observable{J}[2+])\ket{1, \tfrac{1}{2}; 1, -\tfrac{1}{2}},\nonumber\\
+                    0 &= \sqrt{2}a\ket{1, \tfrac{1}{2}; 1, \tfrac{1}{2}} + b\ket{1, \tfrac{1}{2}; 1, \tfrac{1}{2}},\nonumber\\
+                    0 &= (\sqrt{2}a + b)\ket{1, \tfrac{1}{2}; 1, \tfrac{1}{2}},\nonumber\\
                     \sqrt{2}a + b &= 0.\label{eq:second-condition-1212-CCG}
                 \end{align}
 
                 Resolviendo simultáneamente \cref{eq:normalization-condition-1212-CCG,eq:second-condition-1212-CCG},
 
                 \begin{empheq}[box = \fbox]{align*}
-                    a &= \pm \frac{1}{\sqrt{3}},\\
-                    b &= \mp \sqrt{\frac{2}{3}}.
+                    a &= \pm \tfrac{1}{\sqrt{3}},\\
+                    b &= \mp \sqrt{\tfrac{2}{3}}.
                 \end{empheq}
                 
                 Usamos la convención de Condon-Shortley, recordando la de \(a\) y que \(j = \frac{1}{2}\),
                 
                 \begin{empheq}[box = \fbox]{align*}
-                    a &= -\frac{1}{\sqrt{3}},\\
-                    b &= \sqrt{\frac{2}{3}}.
+                    a &= -\tfrac{1}{\sqrt{3}},\\
+                    b &= \sqrt{\tfrac{2}{3}}.
                 \end{empheq}
 
                 Por lo que \(\ket{\frac{1}{2}, \frac{1}{2}}\) queda como
 
                 \begin{empheq}[box = \color{pinkwave}\fbox]{equation}
-                    \ket{\frac{1}{2}, \frac{1}{2}} = -\frac{1}{\sqrt{3}}\ket{1, \frac{1}{2}; 0, \frac{1}{2}} + \sqrt{\frac{2}{3}}\ket{1, \frac{1}{2}; 1, -\frac{1}{2}}.
+                    \ket{\tfrac{1}{2}, \tfrac{1}{2}} = -\tfrac{1}{\sqrt{3}}\ket{1, \tfrac{1}{2}; 0, \tfrac{1}{2}} + \sqrt{\tfrac{2}{3}}\ket{1, \tfrac{1}{2}; 1, -\tfrac{1}{2}}.
                     \label{eq:1212-CCG}
                 \end{empheq}
 
                 Los CCG son:
 
                 \begin{empheq}[box = \color{customBlue}\fbox]{align*}
-                    \braket{1, \frac{1}{2}; 0, \frac{1}{2}}{\frac{1}{2}, \frac{1}{2}} &= -\frac{1}{\sqrt{3}},\\
-                    \braket{1, \frac{1}{2}; 1, -\frac{1}{2}}{\frac{1}{2}, \frac{1}{2}} &= \sqrt{\frac{2}{3}}.
+                    \braket{1, \tfrac{1}{2}; 0, \tfrac{1}{2}}{\tfrac{1}{2}, \tfrac{1}{2}} &= -\tfrac{1}{\sqrt{3}},\\
+                    \braket{1, \tfrac{1}{2}; 1, -\tfrac{1}{2}}{\tfrac{1}{2}, \tfrac{1}{2}} &= \sqrt{\tfrac{2}{3}}.
                 \end{empheq}
 
                 Aplicando \(\observable{J}[-1]\) a \cref{eq:1212-CCG}:
 
                 \begin{align*}
-                    \observable{J}[-]\ket{\frac{1}{2}, \frac{1}{2}} &=  -\frac{1}{\sqrt{3}}(\observable{J}[1-] + \observable{J}[2-])\ket{1, \frac{1}{2}; 0, \frac{1}{2}} + \sqrt{\frac{2}{3}}(\observable{J}[1-] + \observable{J}[2-])\ket{1, \frac{1}{2}; 1, -\frac{1}{2}},\\
-                    \Acolorboxed{\ket{\frac{1}{2}, -\frac{1}{2}} &= -\sqrt{\frac{2}{3}}\ket{1, \frac{1}{2}; -1, \frac{1}{2}} + \frac{1}{\sqrt{3}}\ket{1, \frac{1}{2}; 0, -\frac{1}{2}}.}
+                    \observable{J}[-]\ket{\tfrac{1}{2}, \tfrac{1}{2}} &=  -\tfrac{1}{\sqrt{3}}(\observable{J}[1-] + \observable{J}[2-])\ket{1, \tfrac{1}{2}; 0, \tfrac{1}{2}} + \sqrt{\tfrac{2}{3}}(\observable{J}[1-] + \observable{J}[2-])\ket{1, \tfrac{1}{2}; 1, -\tfrac{1}{2}},\\
+                    \Acolorboxed{\ket{\tfrac{1}{2}, -\tfrac{1}{2}} &= -\sqrt{\tfrac{2}{3}}\ket{1, \tfrac{1}{2}; -1, \tfrac{1}{2}} + \tfrac{1}{\sqrt{3}}\ket{1, \tfrac{1}{2}; 0, -\tfrac{1}{2}}.}
                 \end{align*}
 
+                \pagebreak
                 Los CCG son
 
                 \begin{empheq}[box = \color{customBlue}\fbox]{align*}
-                    \braket{1, \frac{1}{2}; -1, \frac{1}{2}}{\frac{1}{2}, -\frac{1}{2}} &= -\sqrt{\frac{2}{3}},\\
-                    \braket{1, \frac{1}{2}; 0, -\frac{1}{2}}{\frac{1}{2}, -\frac{1}{2}} &= \frac{1}{\sqrt{3}}.
+                    \braket{1, \tfrac{1}{2}; -1, \tfrac{1}{2}}{\tfrac{1}{2}, -\tfrac{1}{2}} &= -\sqrt{\tfrac{2}{3}},\\
+                    \braket{1, \tfrac{1}{2}; 0, -\tfrac{1}{2}}{\tfrac{1}{2}, -\tfrac{1}{2}} &= \tfrac{1}{\sqrt{3}}.
                 \end{empheq}
             \end{solution}
             
