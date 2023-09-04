@@ -34,7 +34,7 @@
 
                 El Hamiltoniano \(\observable{H}\) queda entonces como
 
-                \begin{empheq}[box = \color{pinkwave}\fbox]{equation}
+                \begin{empheq}[box = \color{pinkwave}\widefbox]{equation}
                     \observable{H} = V_{0}\matrice{1, 0, 0, 0, 1, 0, 0, 0, 2} + V_{0} \epsilon\matrice{-1, 0, 0, 0, 0, 1, 0, 1, 0}.
                     \label{eq:total-hamiltonian}
                 \end{empheq}
@@ -46,14 +46,14 @@
             \begin{solution}
                 Inmediatamente de \cref{eq:unperturbated-hamiltonian} notamos que los eigenvalores de \(\observable{H}[0]\) son
                 
-                \begin{empheq}[box = \color{pinkwave}\fbox]{align*}
+                \begin{empheq}[box = \color{pinkwave}\widefbox]{align*}
                     \overline{\lambda}_{1} &= V_{0},\\
                     \lambda_{2} &= 2V_{0},
                 \end{empheq}
                 
                 con \(\overline{\lambda}_{1}\) doblemente degenerado. Y que sus eigenvectores son
 
-                \begin{empheq}[box = \color{pinkwave}\fbox]{equation*}
+                \begin{empheq}[box = \color{pinkwave}\widefbox]{equation*}
                     \ket{\psi_{1}} = \matrice[1]{1, 0, 0};\quad \ket{\psi_{2}} = \matrice[1]{0, 1, 0};\quad \ket{\psi_{3}} = \matrice[1]{0, 0, 1}. 
                 \end{empheq}
             \end{solution}
@@ -92,7 +92,7 @@
 
                 Multiplicando por \(V_{0}\) tenemos que los eigenvalores de \(\observable{H}\) son
 
-                \begin{empheq}[box = \color{pinkwave}\fbox]{equation}
+                \begin{empheq}[box = \color{pinkwave}\widefbox]{equation}
                     \begin{alignedat}{1}
                         \omega_{1} &= V_{0}(1 - \epsilon),\\
                         \omega_{2} &\simeq V_{0}(2 - \epsilon^{2}),\\
@@ -182,7 +182,7 @@
 
                 Comparando el valor de \(E_{3}\) con el resultado obtenido en \cref{eq:hamiltonian-eigenvalues} observamos que es lo mismo, \idest
 
-                \begin{empheq}[box = \color{pinkwave}\fbox]{equation*}
+                \begin{empheq}[box = \color{pinkwave}\widefbox]{equation*}
                     E_{3} \simeq V_{0}(2 + \epsilon^{2}) = V_{0}(2 + \epsilon^{2}) \simeq \omega_{3}.
                 \end{empheq}
             \end{solution}
@@ -223,7 +223,7 @@
                 &= V_{0} \epsilon \begin{pmatrix}
                     1 & 0 & 0
                 \end{pmatrix}\matrice[1]{-1, 0, 0},\nonumber\\
-                \Acolorboxed{W_{aa} &= -V_{0} \epsilon.}\label{eq:element-Waa}
+                \Aboxedmain{W_{aa} &= -V_{0} \epsilon.}\label{eq:element-Waa}
             \end{align}
 
             \begin{align}
@@ -233,7 +233,7 @@
                 &= V_{0} \epsilon \begin{pmatrix}
                     0 & 1 & 0
                 \end{pmatrix}\matrice[1]{0, 0, 0},\nonumber\\
-                \Acolorboxed{W_{aa} &= 0.}\label{eq:element-Wbb}
+                \Aboxedmain{W_{aa} &= 0.}\label{eq:element-Wbb}
             \end{align}
 
             \begin{align}
@@ -243,7 +243,7 @@
                 &= V_{0} \epsilon \begin{pmatrix}
                     1 & 0 & 0
                 \end{pmatrix}\matrice[1]{0, 0, 1},\nonumber\\
-                \Acolorboxed{W_{aa} &= 0.}\label{eq:element-Wab}
+                \Aboxedmain{W_{aa} &= 0.}\label{eq:element-Wab}
             \end{align}
 
             Sustituyendo \crefrange{eq:element-Waa}{eq:element-Wab} en \cref{eq:degeneracy-energy-correction-first-order},
@@ -259,7 +259,7 @@
             \begin{align*}
                 E_{1} &\simeq E_{0}^{(1)} + E_{1}^{(1)},\\
                 &\simeq V_{0} + (0 - V_{0}\epsilon),\\
-                \Acolorboxed{E_{1} &\simeq V_{0}(1 - \epsilon).}
+                \Aboxedmain{E_{1} &\simeq V_{0}(1 - \epsilon).}
             \end{align*}
 
             Comparando con \cref{eq:hamiltonian-eigenvalues}, verificamos que el resultado es igual al obtenido en el inciso (c).

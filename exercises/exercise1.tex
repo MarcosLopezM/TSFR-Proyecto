@@ -20,7 +20,7 @@
 
                 Entonces los posibles valores de \(j\) son:
 
-                \begin{empheq}[box = \color{pinkwave}\fbox]{equation}
+                \begin{empheq}[box = \color{pinkwave}\widefbox]{equation}
                     j = \dfrac{1}{2},\ \dfrac{3}{2}.\label{eq:j-values}
                 \end{empheq}
 
@@ -32,7 +32,7 @@
 
                 tal que,                
 
-                \begin{empheq}[box = \color{pinkwave}\fbox]{equation}
+                \begin{empheq}[box = \color{pinkwave}\widefbox]{equation}
                     \begin{alignedat}{2}
                         -\dfrac{1}{2} &\leq m &{}\leq{}& \dfrac{1}{2},\\
                         -\dfrac{3}{2} &\leq m &{}\leq{}& \dfrac{3}{2}.
@@ -109,7 +109,7 @@
 
                 Entonces
 
-                \begin{empheq}[box = \color{pinkwave}\fbox]{equation}
+                \begin{empheq}[box = \color{pinkwave}\widefbox]{equation}
                     \begin{alignedat}{1}
                         \ket{\tfrac{3}{2}, \tfrac{3}{2}} &= \ket{1, \tfrac{1}{2}; 1, \tfrac{1}{2}},\\
                         \braket{1, \tfrac{1}{2}; 1, \tfrac{1}{2}}{\tfrac{3}{2}, \tfrac{3}{2}} &= 1.\quad (\text{CCG})
@@ -121,9 +121,11 @@
 
                 \begin{align}
                     \observable{J}[-]\ket{\tfrac{3}{2}, \tfrac{3}{2}} &= \observable{J}[1-]\ket{1, \tfrac{1}{2}; 1, \tfrac{1}{2}} + \observable{J}[2-]\ket{1, \tfrac{1}{2}; 1, \tfrac{1}{2}},\nonumber\\\
-                    \hbar\sqrt{\tfrac{3}{2}\left(\tfrac{3}{2} + 1\right) - \tfrac{3}{2}\left(\tfrac{3}{2} - 1\right)}\ket{\tfrac{3}{2}, \tfrac{1}{2}} &= \hbar\sqrt{1(1 + 1) - 1(1 - 1)}\ket{1, \tfrac{1}{2}; 0, \tfrac{1}{2}}\nonumber\\
-                    &+ \hbar\sqrt{\tfrac{1}{2}\left(\tfrac{1}{2} + 1\right) - \tfrac{1}{2}\left(\tfrac{1}{2} - 1\right)}\ket{1, \tfrac{1}{2}; 1, -\tfrac{1}{2}},\nonumber\\
-                    \Acolorboxed{\ket{\tfrac{3}{2}, \tfrac{1}{2}} &= \sqrt{\tfrac{2}{3}}\ket{1, \tfrac{1}{2}; 0, \tfrac{1}{2}} + \tfrac{1}{\sqrt{3}}\ket{1, \tfrac{1}{2}; 1, -\tfrac{1}{2}}.}\label{eq:3212-CCG}
+                    \hbar\sqrt{\tfrac{3}{2}\left(\tfrac{3}{2} + 1\right) - \tfrac{3}{2}\left(\tfrac{3}{2} - 1\right)}\ket{\tfrac{3}{2}, \tfrac{1}{2}} &= \begin{multlined}[t]
+                        \hbar\sqrt{1(1 + 1) - 1(1 - 1)}\ket{1, \tfrac{1}{2}; 0, \tfrac{1}{2}}\\
+                        + \hbar\sqrt{\tfrac{1}{2}\left(\tfrac{1}{2} + 1\right) - \tfrac{1}{2}\left(\tfrac{1}{2} - 1\right)}\ket{1, \tfrac{1}{2}; 1, -\tfrac{1}{2}},
+                    \end{multlined}\nonumber\\
+                    \Aboxedmain{\ket{\tfrac{3}{2}, \tfrac{1}{2}} &= \sqrt{\tfrac{2}{3}}\ket{1, \tfrac{1}{2}; 0, \tfrac{1}{2}} + \tfrac{1}{\sqrt{3}}\ket{1, \tfrac{1}{2}; 1, -\tfrac{1}{2}}.}\label{eq:3212-CCG}
                 \end{align}
 
                 Los CCG son
@@ -138,7 +140,7 @@
                 \begin{align}
                     \observable{J}[-]\ket{\tfrac{3}{2}, \tfrac{1}{2}} &= \sqrt{\tfrac{2}{3}}(\observable{J}[1-] + \observable{J}[2-])\ket{1, \tfrac{1}{2}; 0, \tfrac{1}{2}} + \tfrac{2}{\sqrt{3}}(\observable{J}[1-] + \observable{J}[2-])\ket{1, \tfrac{1}{2}; 1, -\tfrac{1}{2}},\nonumber\\
                     2\ket{\tfrac{3}{2}, -\tfrac{1}{2}} &= \sqrt{\tfrac{2}{3}}\left[\sqrt{2}\ket{1, \tfrac{1}{2}; -1, \tfrac{1}{2}} + \ket{1, \tfrac{1}{2}; 0, -\tfrac{1}{2}}\right] + \tfrac{1}{\sqrt{3}}\left[\sqrt{2}\ket{1, \tfrac{1}{2}; 0, -\tfrac{1}{2}}\right],\nonumber\\
-                    \Acolorboxed{\ket{\tfrac{3}{2}, -\tfrac{1}{2}} &= \tfrac{1}{\sqrt{3}}\ket{1, \tfrac{1}{2}; -1, \tfrac{1}{2}} + \sqrt{\tfrac{2}{3}}\ket{1, \tfrac{1}{2}; 0, -\tfrac{1}{2}}.}\label{eq:32-12-CCG}
+                    \Aboxedmain{\ket{\tfrac{3}{2}, -\tfrac{1}{2}} &= \tfrac{1}{\sqrt{3}}\ket{1, \tfrac{1}{2}; -1, \tfrac{1}{2}} + \sqrt{\tfrac{2}{3}}\ket{1, \tfrac{1}{2}; 0, -\tfrac{1}{2}}.}\label{eq:32-12-CCG}
                 \end{align}
 
                 Los CCG son:
@@ -152,7 +154,7 @@
 
                 \begin{align}
                     \observable{J}[-]\ket{\tfrac{3}{2}, -\tfrac{1}{2}} &= \tfrac{1}{\sqrt{3}}(\observable{J}[1-] + \observable{J}[2-])\ket{1, \tfrac{1}{2}; -1, \tfrac{1}{2}} + \sqrt{\tfrac{2}{3}}(\observable{J}[1-] + \observable{J}[2-])\ket{1, \tfrac{1}{2}; 0, -\tfrac{1}{2}},\nonumber\\
-                    \Acolorboxed{\ket{\tfrac{3}{2}, -\tfrac{3}{2}} &= \ket{1, \tfrac{1}{2}; -1, -\tfrac{1}{2}}.}\label{eq:32-32-CCG}
+                    \Aboxedmain{\ket{\tfrac{3}{2}, -\tfrac{3}{2}} &= \ket{1, \tfrac{1}{2}; -1, -\tfrac{1}{2}}.}\label{eq:32-32-CCG}
                 \end{align}
 
                 El CCG es
@@ -221,7 +223,7 @@
 
                 Por lo que \(\ket{\frac{1}{2}, \frac{1}{2}}\) queda como
 
-                \begin{empheq}[box = \color{pinkwave}\fbox]{equation}
+                \begin{empheq}[box = \color{pinkwave}\widefbox]{equation}
                     \ket{\tfrac{1}{2}, \tfrac{1}{2}} = -\tfrac{1}{\sqrt{3}}\ket{1, \tfrac{1}{2}; 0, \tfrac{1}{2}} + \sqrt{\tfrac{2}{3}}\ket{1, \tfrac{1}{2}; 1, -\tfrac{1}{2}}.
                     \label{eq:1212-CCG}
                 \end{empheq}
@@ -237,7 +239,7 @@
 
                 \begin{align*}
                     \observable{J}[-]\ket{\tfrac{1}{2}, \tfrac{1}{2}} &=  -\tfrac{1}{\sqrt{3}}(\observable{J}[1-] + \observable{J}[2-])\ket{1, \tfrac{1}{2}; 0, \tfrac{1}{2}} + \sqrt{\tfrac{2}{3}}(\observable{J}[1-] + \observable{J}[2-])\ket{1, \tfrac{1}{2}; 1, -\tfrac{1}{2}},\\
-                    \Acolorboxed{\ket{\tfrac{1}{2}, -\tfrac{1}{2}} &= -\sqrt{\tfrac{2}{3}}\ket{1, \tfrac{1}{2}; -1, \tfrac{1}{2}} + \tfrac{1}{\sqrt{3}}\ket{1, \tfrac{1}{2}; 0, -\tfrac{1}{2}}.}
+                    \Aboxedmain{\ket{\tfrac{1}{2}, -\tfrac{1}{2}} &= -\sqrt{\tfrac{2}{3}}\ket{1, \tfrac{1}{2}; -1, \tfrac{1}{2}} + \tfrac{1}{\sqrt{3}}\ket{1, \tfrac{1}{2}; 0, -\tfrac{1}{2}}.}
                 \end{align*}
 
                 \pagebreak
@@ -254,7 +256,7 @@
             \begin{solution}
                 La transformación puede escribirse como
 
-                \begin{empheq}[box = \color{pinkwave}\fbox]{equation*}
+                \begin{empheq}[box = \color{pinkwave}\widefbox]{equation*}
                     \matrice[1]{\ket{\frac{3}{2}, \frac{3}{2}},\ket{\frac{3}{2}, \frac{1}{2}},\ket{\frac{3}{2}, \frac{-1}{2}},\ket{\frac{3}{2}, \frac{-3}{2}},\ket{\frac{1}{2}, \frac{1}{2}},\ket{\frac{1}{2}, \frac{-1}{2}}} = 
                     \matrice{
                         1, 0, 0, 0, 0, 0,
