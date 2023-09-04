@@ -8,6 +8,7 @@
 \usepackage{bm}
 \usepackage{bookmark}
 \usepackage{chemformula}
+\usepackage[es]{datetime2}
 \usepackage{derivative}
 \usepackage{empheq}
 \usepackage[inline]{enumitem}
@@ -204,6 +205,7 @@
 \newcommand*{\classname}{Física Atómica y Materia Condensada}
 \newcommand*{\homeworknumber}{Tarea 1}
 \newcommand*{\name}{Marcos López Merino}
+\DTMsavedate{duedate}{2023-09-12}
 
 % unit vector i
 \newcommand*{\uveci}{{\bm{\hat{\textnormal{\bfseries\i}}}}}
@@ -298,7 +300,7 @@
 % Portada
 \title{
     \textbf{\homeworknumber}\\
-    \normalsize\vspace{0.1in}\small{\textbf{Entrega}:~\today}
+    \normalsize\vspace{0.1in}\small{\textbf{Entrega}:~\DTMusedate{duedate}}
     \vspace{-1.5in}
 }
 \author{}
